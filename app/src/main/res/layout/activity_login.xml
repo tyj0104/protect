@@ -13,6 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:background="#eeeeee"
             android:gravity="center"
             android:text="环保小二"
             android:textColor="#000"
@@ -43,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="30dp"
-                android:layout_toRightOf="@+id/login_user_name"/>
+                android:layout_toRightOf="@+id/login_user_name"
+                android:background="@drawable/rectangle"/>
 
         </RelativeLayout>
 
@@ -68,6 +70,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="30dp"
                 android:layout_toRightOf="@+id/login_user_password"
+                android:background="@drawable/rectangle"
                 android:inputType="textPassword"/>
 
         </RelativeLayout>
