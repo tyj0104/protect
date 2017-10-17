@@ -1,4 +1,4 @@
-package com.example.jay.myapplication.ui;
+package com.example.jay.myapplication.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
