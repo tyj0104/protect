@@ -12,12 +12,12 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:background="#eeeeee"
             android:gravity="center"
             android:text="环保小二"
             android:textColor="#000"
-            android:textSize="26sp"/>
+            android:textSize="24sp"/>
 
         <View
             android:layout_width="match_parent"

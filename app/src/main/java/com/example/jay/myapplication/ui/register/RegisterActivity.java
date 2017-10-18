@@ -1,6 +1,7 @@
 package com.example.jay.myapplication.ui.register;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jay.myapplication.R;
+import com.example.jay.myapplication.ui.agreement.AgreementActivity;
 
 /**
  * Created by Administrator on 2017/10/17
@@ -47,7 +49,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         rb_02 = (RadioButton) findViewById(R.id.register_02_rb);
 
         TextView okTv = (TextView) findViewById(R.id.register_ok_tv);
+        TextView agreement = (TextView) findViewById(R.id.register_agreement);
 
+        agreement.setOnClickListener(this);
         okTv.setOnClickListener(this);
         rb_01.setOnClickListener(this);
         rb_02.setOnClickListener(this);
@@ -57,7 +61,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.register_ok_tv:
+            case R.id.register_ok_tv://注册按钮
                 String passWord = passWordEt.getText().toString().trim();
                 String passWordOk = passWordOkEt.getText().toString().trim();
                 if (TextUtils.isEmpty(passWord) || TextUtils.isEmpty(passWordOk)) {
@@ -79,15 +83,18 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     Toast.makeText(RegisterActivity.this, "请完整的填写资料", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.register_01_rb:
+            case R.id.register_agreement://点击协议文字
+                startActivity(new Intent(RegisterActivity.this, AgreementActivity.class));
+                break;
+            case R.id.register_01_rb://需求方
                 rb_02.setChecked(false);
                 xq = 1;
                 break;
-            case R.id.register_02_rb:
+            case R.id.register_02_rb://服务方
                 rb_01.setChecked(false);
                 xq = 2;
                 break;
-            case R.id.register_08_rb:
+            case R.id.register_08_rb://同意协议 按钮
                 if (isFirst) {
                     isFirst = false;
                     rb_08.setChecked(false);
