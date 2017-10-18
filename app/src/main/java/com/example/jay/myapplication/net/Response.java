@@ -16,8 +16,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Response {
-    public static final int OK = 1;
-    public static final int ERR = 0;
+    public static final int OK = 0;
+    public static final int ERR = 1;
     public static final int ERR_NETWORK = -2;
     public static final int ERR_CONNECT = -3;
     public static final int ERR_CONNECT_TIMEOUT = -4;
@@ -45,7 +45,10 @@ public class Response {
                 .SocketTimeoutException) {
             this.code = ERR_CONNECT_TIMEOUT;
             this.message = "连接超时";
+        } else {
+
         }
+
     }
 
     /**
@@ -60,7 +63,7 @@ public class Response {
      */
     public static <T extends Response> T verify(T t) {
         if (t.isOK()) return t;
-        throw new RuntimeException(t.toString());
+        throw new RuntimeException(t.getMessage());
     }
 
     @Override

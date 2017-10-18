@@ -50,10 +50,10 @@ public class ApiHelper {
     private static final  String dateFormat = "yyyy-MM-dd HH:mm:ss";
     private static Gson creatGson(){
         return new GsonBuilder()
+                .setLenient()
                 .serializeNulls()
                 .setPrettyPrinting()
                 .setDateFormat(dateFormat)
                 .create();
-
     }
 }
