@@ -21,6 +21,10 @@
         <activity
             android:name=".ui.register.RegisterActivity"
             android:theme="@style/MyAppTheme"/>
+
+        <activity
+            android:name=".ui.agreement.AgreementActivity"
+            android:theme="@style/MyAppTheme"/>
     </application>
 
 </manifest>

@@ -12,12 +12,12 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:background="#eeeeee"
             android:gravity="center"
             android:text="环保小二"
             android:textColor="#000"
-            android:textSize="26sp"/>
+            android:textSize="24sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -141,23 +141,23 @@
             <TextView
                 android:id="@+id/login_login"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:background="@drawable/selector_text_view_click"
+                android:layout_height="40dp"
+                android:background="@drawable/selector_register_ok"
                 android:gravity="center"
                 android:text="登录"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/login_register"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/login_login"
-                android:background="@drawable/selector_text_view_click"
+                android:background="@drawable/selector_register_ok"
                 android:gravity="center"
                 android:text="注册"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textSize="18sp"/>
         </RelativeLayout>
     </LinearLayout>
@@ -180,7 +180,7 @@
         android:layout_height="100dp"
         android:layout_above="@+id/login_desc"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/round"
+        android:background="@drawable/selector_weixin_login"
         android:gravity="center"
         android:text="微信登录"
         android:textColor="#000"

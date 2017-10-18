@@ -92,6 +92,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             case R.id.login_register:
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
+            case R.id.login_wei_xin_login:
+                break;
             case R.id.login_select_01:
                 select02.setChecked(false);
                 xq = 1;

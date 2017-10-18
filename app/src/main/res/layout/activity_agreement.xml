@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_agreement_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:text="环保小二APP用户使用协议"
+        android:textColor="#000"
+        android:textSize="22sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_below="@+id/activity_agreement_title"
+        android:background="#000"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_agreement_rl"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/activity_agreement_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/activity_agreement_ok_tv"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/selector_register_ok"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="#fff"
+        android:textSize="20sp"/>
+</RelativeLayout>
