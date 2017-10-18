@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_register_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:text="注册"
+        android:textColor="#000"
+        android:textSize="26sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_below="@+id/activity_register_title"
+        android:background="#000"/>
+
+    <TextView
+        android:id="@+id/register_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:text="用户类型:"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+    <RadioButton
+        android:id="@+id/register_select_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/register_01"/>
+
+    <TextView
+        android:id="@+id/register_select_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/register_select_01"
+        android:text="需求方"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+    <RadioButton
+        android:id="@+id/login_select_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/register_select_02"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/login_select_02"
+        android:text="服务方"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+</RelativeLayout>
