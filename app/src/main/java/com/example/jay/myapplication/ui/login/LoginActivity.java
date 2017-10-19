@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.LoginModel;
+import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.net.ApiHelper;
 import com.example.jay.myapplication.ui.main.MainActivity;
 import com.example.jay.myapplication.ui.register.RegisterActivity;
@@ -84,11 +85,27 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
                     if ("1".equals(loginBean.getS_result())) {
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        /**
+                         * 保存用户登录信息
+                         */
+                        setUserInfo(loginBean);
                     } else {
                         Toast.makeText(LoginActivity.this, loginBean.getError_desc(), Toast.LENGTH_SHORT).show();
                     }
                     Log.e("test", "  请求结果 ===>" + o.toString());
                 });
+    }
+
+    /**
+     * 保存用户登录信息
+     * @param loginBean
+     */
+    private void setUserInfo(LoginModel.A01APPLoginBean loginBean) {
+        UserInfo.getInstance().setSession_id(loginBean.getSession_id());
+        UserInfo.getInstance().setLogin_id(loginBean.getLogin_id());
+        UserInfo.getInstance().setNickname(loginBean.getNickname());
+        UserInfo.getInstance().setALI_ACCOUNT(loginBean.getALI_ACCOUNT());
+        UserInfo.getInstance().setM_ACCOUNT(loginBean.getM_ACCOUNT());
     }
 
     @Override
