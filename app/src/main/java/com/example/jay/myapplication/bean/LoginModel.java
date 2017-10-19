@@ -9,17 +9,17 @@ import java.util.List;
 
 public class LoginModel implements Serializable {
 
-    private List<A01APPRegisterBean> A01_APP_Register;
+    private List<A01APPLoginBean> A01_APP_Login;
 
-    public List<A01APPRegisterBean> getA01_APP_Register() {
-        return A01_APP_Register;
+    public List<A01APPLoginBean> getA01_APP_Login() {
+        return A01_APP_Login;
     }
 
-    public void setA01_APP_Register(List<A01APPRegisterBean> A01_APP_Register) {
-        this.A01_APP_Register = A01_APP_Register;
+    public void setA01_APP_Login(List<A01APPLoginBean> A01_APP_Login) {
+        this.A01_APP_Login = A01_APP_Login;
     }
 
-    public static class A01APPRegisterBean {
+    public static class A01APPLoginBean {
         /**
          * session_id : 571DFFBC-EE9A-41B9-BFFD-59A337A6CD70
          * s_result : 1

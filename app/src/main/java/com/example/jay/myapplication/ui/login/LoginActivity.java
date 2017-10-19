@@ -77,7 +77,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(o -> {
                     LoginModel loginModel = JsonUtil.fromJson(o, LoginModel.class);
-                    LoginModel.A01APPRegisterBean loginBean = loginModel.getA01_APP_Register().get(0);
+                    LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
                     if ("1".equals(loginBean.getS_result())) {
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
