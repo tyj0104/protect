@@ -1,8 +1,6 @@
 package com.example.jay.myapplication.net;
 
 
-import com.example.jay.myapplication.bean.LoginBen;
-
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

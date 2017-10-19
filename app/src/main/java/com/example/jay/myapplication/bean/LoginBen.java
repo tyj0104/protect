@@ -1,14 +1,16 @@
 package com.example.jay.myapplication.bean;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by jay on 2017/10/18.
+ * Created by jay on 2017/10/18
  */
 @Getter
 @Setter
-public class LoginBen extends Object {
+public class LoginBen extends Object implements Serializable{
     private String session_id;
 
     private String s_result;
@@ -22,4 +24,6 @@ public class LoginBen extends Object {
     private String ALI_ACCOUNT;
 
     private String M_ACCOUNT;
+
+
 }

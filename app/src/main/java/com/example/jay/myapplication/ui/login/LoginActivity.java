@@ -4,16 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jay.myapplication.R;
+import com.example.jay.myapplication.bean.LoginModel;
 import com.example.jay.myapplication.net.ApiHelper;
-import com.example.jay.myapplication.net.Response;
+import com.example.jay.myapplication.ui.main.MainActivity;
 import com.example.jay.myapplication.ui.register.RegisterActivity;
-
+import com.example.jay.myapplication.utils.JsonUtil;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -33,9 +36,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private RadioButton select01;
     private RadioButton select02;
     private int xq = -1;//是否是服务方，1为需求方，2为服务方
-    private  String sub_code = "8A0731CC39614C90A5D474BC17253713";
-    private  String sub_usercode = "414A6DB3BBE6419DA3768E6E25127310";
-    private  String  param_name  ="A01_APP_Login";
+    private String param_name = "A01_APP_Login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,22 +61,30 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         weixinlogin.setOnClickListener(this);
         select02.setOnClickListener(this);
         select01.setOnClickListener(this);
-        init();
+//        init();
     }
 
     /**
      * 样板
+     *
+     * @param user
+     * @param pass
      */
-    private void init() {
+    private void login(String user, String pass) {
 
-        ApiHelper.getApi().login(sub_code,sub_usercode,param_name,"aaa","bbb","1","0")
+        ApiHelper.getApi().login(ApiHelper.sub_code, ApiHelper.sub_usercode, param_name, user, pass, xq == 1 ? "1" : "0", xq == 1 ? "0" : "1")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        o -> {
-                            System.out.println("  请求结果 ==="+o.toString());
-                        }
-                );
+                .subscribe(o -> {
+                    LoginModel loginModel = JsonUtil.fromJson(o, LoginModel.class);
+                    LoginModel.A01APPRegisterBean loginBean = loginModel.getA01_APP_Register().get(0);
+                    if ("1".equals(loginBean.getS_result())) {
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else {
+                        Toast.makeText(LoginActivity.this, loginBean.getError_desc(), Toast.LENGTH_SHORT).show();
+                    }
+                    Log.e("test", "  请求结果 ===>" + o.toString());
+                });
     }
 
     @Override
@@ -87,6 +96,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
                 if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass) && xq != -1) {
                     //请求登陆
+                    login(user, pass);
                 }
                 break;
             case R.id.login_register:

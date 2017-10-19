@@ -63,7 +63,7 @@ public class Response {
      */
     public static <T extends Response> T verify(T t) {
         if (t.isOK()) return t;
-        throw new RuntimeException(t.getMessage());
+        throw new RuntimeException(t.toString());
     }
 
     @Override
