@@ -94,14 +94,18 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(o -> {
                                 RegisterModel registerModel = JsonUtil.fromJson(o, RegisterModel.class);
-                                RegisterModel.A01APPRegisterBean a01APPRegisterBean = registerModel.getA01_APP_Register().get(0);
-                                if ("1".equals(a01APPRegisterBean.getS_result())) {
+                                if (registerModel == null) {
+                                    Toast.makeText(RegisterActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                RegisterModel.A01APPRegisterBean registerBean = registerModel.getA01_APP_Register().get(0);
+                                if ("1".equals(registerBean.getS_result())) {
                                     Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                                    Log.d("test", "成功：" + a01APPRegisterBean.getS_result());
+                                    Log.d("test", "成功：" + registerBean.getS_result());
                                     finish();
                                 } else {
-                                    Toast.makeText(RegisterActivity.this, "注册失败," + a01APPRegisterBean.getError_desc(), Toast.LENGTH_SHORT).show();
-                                    Log.d("test", "错误原因：" + a01APPRegisterBean.getError_desc());
+                                    Toast.makeText(RegisterActivity.this, "注册失败," + registerBean.getError_desc(), Toast.LENGTH_SHORT).show();
+                                    Log.d("test", "错误原因：" + registerBean.getError_desc());
                                 }
                                 Log.d("test", "后台返回的字符串：" + o.toString());
                             });
