@@ -16,7 +16,7 @@ public final class UserInfo {
      **/
     @Getter
     @Setter
-    private static UserInfo  instance = new UserInfo ();
+    private static UserInfo instance = new UserInfo();
     /**
      * 平台
      */
@@ -49,5 +49,9 @@ public final class UserInfo {
      */
     public String M_ACCOUNT;
 
+    /**
+     * 是否是需求方
+     */
+    public boolean isXuQiuFang;
 
 }

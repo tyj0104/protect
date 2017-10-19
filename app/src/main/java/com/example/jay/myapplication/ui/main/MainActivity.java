@@ -1,16 +1,12 @@
 package com.example.jay.myapplication.ui.main;
 
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 
-import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.jay.myapplication.R;
@@ -18,13 +14,12 @@ import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.databinding.ActivityMainBinding;
 import com.example.jay.myapplication.fragment.BaseFragment;
 import com.example.jay.myapplication.net.ApiHelper;
-
-import java.net.URI;
+import com.example.jay.myapplication.ui.BaseActivity;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
+public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
 
     private ActivityMainBinding binding;
     private BottomNavigationBar mNavigationBar;
@@ -40,14 +35,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     }
 
     private void initBottomNavigationBar() {
+        boolean xuQiuFang = UserInfo.getInstance().isXuQiuFang();
         mNavigationBar = binding.bottomNavigationBar;
 
-        BottomNavigationItem serviceHallItem = new BottomNavigationItem(R.mipmap.hall, "服务大厅");
+        BottomNavigationItem serviceHallItem = new BottomNavigationItem(R.mipmap.hall, xuQiuFang ? "服务大厅" : "需求大厅");
         mNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
         serviceHallItem.setInactiveIconResource(R.mipmap.hall);
         mNavigationBar.addItem(serviceHallItem);
 
-        BottomNavigationItem recommendItem = new BottomNavigationItem(R.mipmap.tuijian, "服务推荐");
+        BottomNavigationItem recommendItem = new BottomNavigationItem(R.mipmap.tuijian, xuQiuFang ? "服务推荐" : "我的关注");
         recommendItem.setInactiveIconResource(R.mipmap.tuijian);
         mNavigationBar.addItem(recommendItem);
 
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         myMsgItem.setInactiveIconResource(R.mipmap.msg);
 
 
-        BottomNavigationItem successfulCaseItem = new BottomNavigationItem(R.mipmap.seccase, "成功案例");
+        BottomNavigationItem successfulCaseItem = new BottomNavigationItem(R.mipmap.seccase, xuQiuFang ? "成功案例" : "我的历史");
         mNavigationBar.addItem(successfulCaseItem);
         successfulCaseItem.setInactiveIconResource(R.mipmap.seccase);
 

@@ -1,6 +1,5 @@
 package com.example.jay.myapplication.ui.login;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +14,7 @@ import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.LoginModel;
 import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.net.ApiHelper;
+import com.example.jay.myapplication.ui.BaseActivity;
 import com.example.jay.myapplication.ui.main.MainActivity;
 import com.example.jay.myapplication.ui.register.RegisterActivity;
 import com.example.jay.myapplication.utils.JsonUtil;
@@ -27,7 +27,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Administrator on 2017/10/17
  */
 
-public class LoginActivity extends Activity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 //sub_code=8A0731CC39614C90A5D474BC17253713&
 // sub_usercode=414A6DB3BBE6419DA3768E6E25127310&
 // param_name=A01_APP_Login&param_value1=aaa&param_value2=bbb&param_value3=1&param_value4=0
@@ -79,16 +79,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 .subscribe(o -> {
                     LoginModel loginModel = JsonUtil.fromJson(o, LoginModel.class);
                     if (loginModel == null) {
-                        Toast.makeText(LoginActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
+                        showToast(LoginActivity.this, "网络出现了问题");
                         return;
                     }
                     LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
                     if ("1".equals(loginBean.getS_result())) {
+                        cancelLoadingDialog(LoginActivity.this);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         /**
                          * 保存用户登录信息
                          */
                         setUserInfo(loginBean);
+                        finish();
                     } else {
                         Toast.makeText(LoginActivity.this, loginBean.getError_desc(), Toast.LENGTH_SHORT).show();
                     }
@@ -98,6 +101,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     /**
      * 保存用户登录信息
+     *
      * @param loginBean
      */
     private void setUserInfo(LoginModel.A01APPLoginBean loginBean) {
@@ -106,6 +110,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         UserInfo.getInstance().setNickname(loginBean.getNickname());
         UserInfo.getInstance().setALI_ACCOUNT(loginBean.getALI_ACCOUNT());
         UserInfo.getInstance().setM_ACCOUNT(loginBean.getM_ACCOUNT());
+        UserInfo.getInstance().setXuQiuFang(xq == 1);
     }
 
     @Override
@@ -117,6 +122,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
                 if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass) && xq != -1) {
                     //请求登陆
+                    showLoadingDialog(LoginActivity.this, "登录中...");
                     login(user, pass);
                 }
                 break;
