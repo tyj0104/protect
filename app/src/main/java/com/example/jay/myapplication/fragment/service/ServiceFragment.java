@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.AdBean;
 import com.example.jay.myapplication.bean.RecommendBean;
+import com.example.jay.myapplication.bean.SuccessfulCaseBean;
 import com.example.jay.myapplication.databinding.FrgmentSevicehallBinding;
 import com.example.jay.myapplication.fragment.BaseFragment;
 import com.example.jay.myapplication.fragment.service.adapter.ServiceHallAdapter;
@@ -20,9 +21,11 @@ import com.example.jay.myapplication.fragment.service.adapter.recommend.Recommen
 import com.example.jay.myapplication.fragment.service.adapter.successfulcase.SuccessfulCaseSeizeAdapter;
 import com.example.jay.myapplication.fragment.service.vm.AdVM;
 import com.example.jay.myapplication.fragment.service.vm.RecommendVM;
+import com.example.jay.myapplication.fragment.service.vm.SuccessfulCaseVM;
 import com.example.jay.myapplication.ui.main.MainActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -37,6 +40,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     private AdSeizeAdapter adSeizeAdapter;
     private RecommendSeizeAdapter recommendSeizeAdapter;
     private MainActivity activity;
+    private SuccessfulCaseSeizeAdapter successfulCaseSeizeAdapter;
 
     @Nullable
     @Override
@@ -55,7 +59,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
         ServiceHallAdapter adapter = new ServiceHallAdapter();
         adSeizeAdapter = new AdSeizeAdapter();
         recommendSeizeAdapter = new RecommendSeizeAdapter();
-        SuccessfulCaseSeizeAdapter successfulCaseSeizeAdapter = new SuccessfulCaseSeizeAdapter();
+        successfulCaseSeizeAdapter = new SuccessfulCaseSeizeAdapter();
         adapter.setSeizeAdapters(adSeizeAdapter, recommendSeizeAdapter, successfulCaseSeizeAdapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -98,6 +102,27 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
                     recommendSeizeAdapter.setHeader(inflaterHeaderOrFooter(R.layout.item_service_recommend_head));
                     recommendSeizeAdapter.setList(recommendVMs);
                     recommendSeizeAdapter.notifyDataSetChanged();
+                });
+
+        List<SuccessfulCaseBean> caseList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            SuccessfulCaseBean successfulCaseBean = new SuccessfulCaseBean();
+            successfulCaseBean.setTv1("老田的公司许可证需求项目");
+            successfulCaseBean.setTv2("老杜服务方");
+            successfulCaseBean.setTv3("15分钟之前完成");
+            caseList.add(successfulCaseBean);
+        }
+
+        Flowable.just(caseList)
+                .subscribeOn(Schedulers.io())
+                .flatMap(Flowable::fromIterable)
+                .map(SuccessfulCaseVM::new)
+                .toList()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(successfulCaseVMs -> {
+                    successfulCaseSeizeAdapter.setHeader(inflaterHeaderOrFooter(R.layout.item_service_successful_case_head));
+                    successfulCaseSeizeAdapter.setList(successfulCaseVMs);
+                    successfulCaseSeizeAdapter.notifyDataSetChanged();
                 });
     }
 
