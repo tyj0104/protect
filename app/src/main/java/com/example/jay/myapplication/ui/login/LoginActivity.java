@@ -15,6 +15,7 @@ import com.example.jay.myapplication.bean.LoginModel;
 import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.net.ApiHelper;
 import com.example.jay.myapplication.ui.BaseActivity;
+import com.example.jay.myapplication.ui.guidecase.GuideCaseActivity;
 import com.example.jay.myapplication.ui.main.MainActivity;
 import com.example.jay.myapplication.ui.register.RegisterActivity;
 import com.example.jay.myapplication.utils.JsonUtil;
@@ -86,7 +87,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
                     if ("1".equals(loginBean.getS_result())) {
                         cancelLoadingDialog(LoginActivity.this);
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this,GuideCaseActivity.class));
                         /**
                          * 保存用户登录信息
                          */
