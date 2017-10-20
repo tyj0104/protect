@@ -78,18 +78,21 @@ public interface Api {
      * @param session_id    用户登录Session_ID
      * @param login_id      登录账号(用户手机号)
      * @param param_value1  登录账号(用户手机号)
+     * @param start 开始
+     * @param end  结束
      * @return
      */
-//    @FormUrlEncoded
-//    @POST("CenterData")
-   @ GET("CenterData")
+    @FormUrlEncoded
+    @POST("CenterData")
     Observable<Object> SelServList1(
             @Query("sub_code") String sub_code,
             @Query("sub_usercode") String sub_usercode,
             @Query("param_name") String A01_APP_SelServList1,
-            @Query("session_id") String session_id, // 用户登录Session_ID
-            @Query("login_id") String login_id,   // 登录账号(用户手机号)
-            @Query("param_value1") String param_value1   // 登录账号(用户手机号)
+            @Field("session_id") String session_id, // 用户登录Session_ID
+            @Field("login_id") String login_id,   // 登录账号(用户手机号)
+            @Field("param_value1") String param_value1 ,  // 登录账号(用户手机号)，
+            @Field("param_value2") String start ,  // 登录账号(用户手机号)，
+            @Field("param_value3") String end   // 登录账号(用户手机号)
     );
 
 

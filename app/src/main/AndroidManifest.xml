@@ -33,6 +33,12 @@
             android:name=".ui.main.MainActivity"
             android:launchMode="singleTask"
             android:theme="@style/MyAppTheme"/>
+
+        <activity
+            android:name=".ui.guidecase.GuideCaseActivity"
+            android:theme="@style/MyAppTheme"/>
+
+
     </application>
 
 </manifest>

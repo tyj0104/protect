@@ -20,7 +20,7 @@ public final class UserInfo {
     /**
      * 平台
      */
-    public String sub_code = "414A6DB3BBE6419DA3768E6E25127310";
+    public String sub_code = "8A0731CC39614C90A5D474BC17253713";
 
     /**
      * 平台

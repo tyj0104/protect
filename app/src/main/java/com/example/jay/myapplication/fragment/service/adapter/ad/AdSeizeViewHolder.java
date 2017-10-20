@@ -1,7 +1,6 @@
 package com.example.jay.myapplication.fragment.service.adapter.ad;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -32,6 +32,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         initBottomNavigationBar();
         printLog();
         setDefaultFragment();
+
+       test();
     }
 
     private void initBottomNavigationBar() {
@@ -88,11 +90,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     private void test() {
         ApiHelper.getApi().SelServList1(UserInfo.getInstance().sub_code, UserInfo.getInstance().getSub_usercode(),
                 "A01_APP_SelServList1", UserInfo.getInstance().getSession_id(), UserInfo.getInstance().getLogin_id(),
-                UserInfo.getInstance().getNickname())
+                UserInfo.getInstance().getLogin_id(),"0","10")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(o -> {
-                    System.out.println(o.toString());
+                    System.out.println(" =======A01_APP_SelServList1 == "+o.toString());
                 });
     }
 

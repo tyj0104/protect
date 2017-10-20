@@ -58,6 +58,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
         xuQiuFang = UserInfo.getInstance().isXuQiuFang();
         RecyclerView recyclerView = (RecyclerView) mBinding.getRoot().findViewById(R.id.fragment_service_hall_rl);
 
+
         ServiceHallAdapter adapter = new ServiceHallAdapter();
         adSeizeAdapter = new AdSeizeAdapter();
         recommendSeizeAdapter = new RecommendSeizeAdapter();
