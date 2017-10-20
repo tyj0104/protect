@@ -19,7 +19,7 @@ public class RecommendSeizeAdapter extends BaseSeizeAdapter {
     private OnRecommendSeizeAdapterListener onRecommendSeizeAdapterListener;
 
     public interface OnRecommendSeizeAdapterListener {
-        void onRecommendClick();
+        void onRecommendClick(int position);
     }
 
     public OnRecommendSeizeAdapterListener getOnRecommendSeizeAdapterListener() {

@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
+        android:paddingLeft="5dp"
         android:text="公告或广告"
         android:textSize="15sp"/>
 

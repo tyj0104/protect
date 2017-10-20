@@ -72,6 +72,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     }
 
     private void initData() {
+        //公告位
         AdBean adBean = new AdBean();
         adBean.setContent("我不是好人，我要做一个坏人，老田你看着办，是死，是活，你一句话，我去解决了小杜");
         Flowable.just(adBean)
@@ -83,6 +84,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
                     adSeizeAdapter.notifyDataSetChanged();
                 });
 
+        //推荐的数据
         ArrayList<RecommendBean> recommendList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             RecommendBean recommendBean = new RecommendBean();
@@ -104,6 +106,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
                     recommendSeizeAdapter.notifyDataSetChanged();
                 });
 
+        //成功安例的数据
         List<SuccessfulCaseBean> caseList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             SuccessfulCaseBean successfulCaseBean = new SuccessfulCaseBean();
@@ -140,9 +143,9 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     }
 
     @Override
-    public void onRecommendClick() {
+    public void onRecommendClick(int position) {
         if (activity != null) {
-            activity.showToast(getContext(), "我点击了推荐");
+            activity.showToast(getContext(), "我点击了推荐" + position);
         }
     }
 }

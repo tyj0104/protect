@@ -42,6 +42,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //第一次安装APP时，启动APP后按Home回卓面再按图标回到APP中时会重启Activity。此方法可以解决此问题
+        if (!isTaskRoot()) {
+            finish();
+            return;
+        }
         setContentView(R.layout.activity_login);
 
         initView();

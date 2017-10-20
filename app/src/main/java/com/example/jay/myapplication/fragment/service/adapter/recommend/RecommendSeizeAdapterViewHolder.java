@@ -28,6 +28,7 @@ public class RecommendSeizeAdapterViewHolder extends BaseViewHolder implements V
     private final RatingBarView star;
     private final TextView name;
     private final Context context;
+    private int position;
 
     public RecommendSeizeAdapterViewHolder(RecommendSeizeAdapter recommendSeizeAdapter, ViewGroup parent) {
         super(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_service_recommend, parent, false));
@@ -44,7 +45,7 @@ public class RecommendSeizeAdapterViewHolder extends BaseViewHolder implements V
 
     @Override
     public void onBindViewHolder(BaseViewHolder baseViewHolder, SeizePosition seizePosition) {
-        int position = seizePosition.getSubSourcePosition();
+        position = seizePosition.getSubSourcePosition();
         RecommendVM recommendVM = recommendSeizeAdapter.getList().get(position);
         if (recommendVM == null) {
             return;
@@ -66,7 +67,7 @@ public class RecommendSeizeAdapterViewHolder extends BaseViewHolder implements V
         switch (v.getId()) {
             case R.id.item_service_recommend_view:
                 if (onRecommendSeizeAdapterListener != null) {
-                    onRecommendSeizeAdapterListener.onRecommendClick();
+                    onRecommendSeizeAdapterListener.onRecommendClick(position);
                 }
                 break;
             default:
