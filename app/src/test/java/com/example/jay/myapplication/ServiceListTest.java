@@ -43,7 +43,7 @@ public class ServiceListTest {
 
     @Test
     public void serviceList(){
-        ApiHelper.getApi().SelServList1(sub_code,sub_usercode," A01_APP_SelServList1","9A058E06-68AE-4895-9609-7FB255C16D3B","18888888888","18888888888")
+        ApiHelper.getApi().SelServList1(sub_code,sub_usercode,"A01_APP_SelServList1","34664008-769C-4EE5-ACD4-3F9C824C3B09","aaa","aaa","0","10")
                 .blockingFirst();
     }
     @Test
