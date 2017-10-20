@@ -10,6 +10,9 @@ public class SuccessfulCaseBean implements Serializable {
     private String tv1;
     private String tv2;
     private String tv3;
+    private String tv4;
+    private String tv5;
+    private String tv6;
 
     public String getTv1() {
         return tv1;
@@ -33,5 +36,29 @@ public class SuccessfulCaseBean implements Serializable {
 
     public void setTv3(String tv3) {
         this.tv3 = tv3;
+    }
+
+    public String getTv4() {
+        return tv4;
+    }
+
+    public void setTv4(String tv4) {
+        this.tv4 = tv4;
+    }
+
+    public String getTv5() {
+        return tv5;
+    }
+
+    public void setTv5(String tv5) {
+        this.tv5 = tv5;
+    }
+
+    public String getTv6() {
+        return tv6;
+    }
+
+    public void setTv6(String tv6) {
+        this.tv6 = tv6;
     }
 }

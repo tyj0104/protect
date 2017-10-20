@@ -15,8 +15,17 @@ import java.util.List;
  */
 
 public class SuccessfulCaseSeizeAdapter extends BaseSeizeAdapter {
+    private boolean xuQiuFang;
     private List<SuccessfulCaseVM> list = new ArrayList<>();
     private OnSuccessfulCaseSeizeAdapterListener onSuccessfulCaseSeizeAdapter;
+
+    public void setXuQiuFang(boolean xuQiuFang) {
+        this.xuQiuFang = xuQiuFang;
+    }
+
+    public boolean getXuQiuFang() {
+        return xuQiuFang;
+    }
 
     public interface OnSuccessfulCaseSeizeAdapterListener {
         void onSuccessfulCaseClick();

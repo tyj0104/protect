@@ -13,6 +13,7 @@ import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.AdBean;
 import com.example.jay.myapplication.bean.RecommendBean;
 import com.example.jay.myapplication.bean.SuccessfulCaseBean;
+import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.databinding.FrgmentSevicehallBinding;
 import com.example.jay.myapplication.fragment.BaseFragment;
 import com.example.jay.myapplication.fragment.service.adapter.ServiceHallAdapter;
@@ -41,6 +42,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     private RecommendSeizeAdapter recommendSeizeAdapter;
     private MainActivity activity;
     private SuccessfulCaseSeizeAdapter successfulCaseSeizeAdapter;
+    private boolean xuQiuFang;
 
     @Nullable
     @Override
@@ -53,7 +55,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
 
     private void initView() {
         activity = (MainActivity) getActivity();
-
+        xuQiuFang = UserInfo.getInstance().isXuQiuFang();
         RecyclerView recyclerView = (RecyclerView) mBinding.getRoot().findViewById(R.id.fragment_service_hall_rl);
 
         ServiceHallAdapter adapter = new ServiceHallAdapter();
@@ -81,41 +83,60 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(adVM -> {
                     adSeizeAdapter.setAdVM(adVM);
+                    adSeizeAdapter.setXuQiuFang(xuQiuFang);
                     adSeizeAdapter.notifyDataSetChanged();
                 });
 
         //推荐的数据
-        ArrayList<RecommendBean> recommendList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            RecommendBean recommendBean = new RecommendBean();
-            recommendBean.setName("老田");
-            recommendBean.setDesc("老田的公司");
-            recommendBean.setStar("5.0");
-            recommendList.add(recommendBean);
-        }
+        if (xuQiuFang) {
+            ArrayList<RecommendBean> recommendList = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                RecommendBean recommendBean = new RecommendBean();
+                recommendBean.setName("老田");
+                recommendBean.setDesc("老田的公司");
+                recommendBean.setStar("5.0");
+                recommendList.add(recommendBean);
+            }
 
-        Flowable.just(recommendList)
-                .subscribeOn(Schedulers.io())
-                .flatMap(Flowable::fromIterable)
-                .map(RecommendVM::new)
-                .toList()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(recommendVMs -> {
-                    recommendSeizeAdapter.setHeader(inflaterHeaderOrFooter(R.layout.item_service_recommend_head));
-                    recommendSeizeAdapter.setList(recommendVMs);
-                    recommendSeizeAdapter.notifyDataSetChanged();
-                });
+            Flowable.just(recommendList)
+                    .subscribeOn(Schedulers.io())
+                    .flatMap(Flowable::fromIterable)
+                    .map(RecommendVM::new)
+                    .toList()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(recommendVMs -> {
+                        recommendSeizeAdapter.setHeader(inflaterHeaderOrFooter(R.layout.item_service_recommend_head));
+                        recommendSeizeAdapter.setList(recommendVMs);
+                        recommendSeizeAdapter.notifyDataSetChanged();
+                    });
+        }
 
         //成功安例的数据
         List<SuccessfulCaseBean> caseList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            SuccessfulCaseBean successfulCaseBean = new SuccessfulCaseBean();
-            successfulCaseBean.setTv1("老田的公司许可证需求项目");
-            successfulCaseBean.setTv2("老杜服务方");
-            successfulCaseBean.setTv3("15分钟之前完成");
-            caseList.add(successfulCaseBean);
+        if (xuQiuFang) {
+            for (int i = 0; i < 10; i++) {
+                SuccessfulCaseBean successfulCaseBean = new SuccessfulCaseBean();
+                successfulCaseBean.setTv1("老田的公司许可证需求项目");
+                successfulCaseBean.setTv2("老杜服务方");
+                successfulCaseBean.setTv3("15分钟之前完成");
+                caseList.add(successfulCaseBean);
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                SuccessfulCaseBean successfulCaseBean = new SuccessfulCaseBean();
+                successfulCaseBean.setTv1("老田许可证需求?");
+                successfulCaseBean.setTv2("需求内容如下");
+                successfulCaseBean.setTv3("15分钟之前发布");
+                successfulCaseBean.setTv4("100");
+                successfulCaseBean.setTv5("3");
+                successfulCaseBean.setTv6("10");
+                caseList.add(successfulCaseBean);
+            }
         }
+        requestSuccessfulCaseData(caseList);
+    }
 
+    private void requestSuccessfulCaseData(List<SuccessfulCaseBean> caseList) {
         Flowable.just(caseList)
                 .subscribeOn(Schedulers.io())
                 .flatMap(Flowable::fromIterable)
@@ -123,7 +144,10 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
                 .toList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(successfulCaseVMs -> {
-                    successfulCaseSeizeAdapter.setHeader(inflaterHeaderOrFooter(R.layout.item_service_successful_case_head));
+                    if (xuQiuFang) {
+                        successfulCaseSeizeAdapter.setHeader(inflaterHeaderOrFooter(R.layout.item_service_successful_case_head));
+                    }
+                    successfulCaseSeizeAdapter.setXuQiuFang(xuQiuFang);
                     successfulCaseSeizeAdapter.setList(successfulCaseVMs);
                     successfulCaseSeizeAdapter.notifyDataSetChanged();
                 });

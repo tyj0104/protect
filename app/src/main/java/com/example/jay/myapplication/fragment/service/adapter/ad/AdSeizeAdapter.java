@@ -15,6 +15,15 @@ public class AdSeizeAdapter extends BaseSeizeAdapter {
 
     private AdVM adVM;
     private OnAdSeizeAdapterListener onAdSeizeAdapterListener;
+    private boolean xuQiuFang;
+
+    public void setXuQiuFang(boolean xuQiuFang) {
+        this.xuQiuFang = xuQiuFang;
+    }
+
+    public boolean getXuQiuFang() {
+        return xuQiuFang;
+    }
 
     public interface OnAdSeizeAdapterListener {
         void onAdClick();

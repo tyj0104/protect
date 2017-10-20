@@ -51,7 +51,7 @@ public class RatingBarView extends LinearLayout {
         ViewGroup.LayoutParams para = new ViewGroup.LayoutParams(Math.round(starSize), Math.round(starSize));
         imageView.setLayoutParams(para);
         // TODO:you can change gap between two stars use the padding
-        imageView.setPadding(0, 0, ResUtil.dip2px(7), 0);
+        imageView.setPadding(0, 0, ResUtil.dip2px(getContext(),7), 0);
         imageView.setImageDrawable(starEmptyDrawable);
         imageView.setMaxWidth(10);
         imageView.setMaxHeight(10);

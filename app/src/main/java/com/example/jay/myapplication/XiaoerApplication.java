@@ -17,9 +17,6 @@ public class XiaoerApplication extends Application {
     }
 
     public static XiaoerApplication getInstances() {
-        if (instances == null) {
-            instances = new XiaoerApplication();
-        }
         return instances;
     }
 }
