@@ -26,6 +26,12 @@
                 android:textColor="#FFF"
                 android:textSize="20sp"/>
         </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_service_hall_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <TextView
             android:text="服务大厅"
             android:layout_width="wrap_content"
