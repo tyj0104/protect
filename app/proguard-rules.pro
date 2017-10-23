@@ -15,3 +15,29 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-include 'proguard_annotations.pro'
+
+-dontwarn java.**
+-dontwarn sun.**
+
+-dontwarn android.**
+-dontwarn com.google.**
+
+-dontwarn okio.**
+-dontwarn retrofit2.**
+
+
+#Response
+-keepclassmembers class com.example.jay.myapplication.net.Response { <init>(); }
+-keepclassmembers class * extends com.example.jay.myapplication.net.Response { <init>(); }
+
+
+
+-keepclassmembernames class com.example.jay.myapplication.bean.AdBean$*{ *; }
+-keepclassmembernames class com.example.jay.myapplication.bean.LoginBean$*{ *; }
+-keepclassmembernames class com.example.jay.myapplication.bean.LoginModel$*{ *; }
+-keepclassmembernames class com.example.jay.myapplication.bean.RecommendBean$*{ *; }
+-keepclassmembernames class com.example.jay.myapplication.bean.RegisterModel$*{ *; }
+-keepclassmembernames class com.example.jay.myapplication.bean.SuccessfulCaseBean$*{ *; }
+-keepclassmembernames class com.example.jay.myapplication.bean.UserInfo$*{ *; }
+
