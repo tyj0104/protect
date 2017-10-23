@@ -16,7 +16,7 @@ public final class UserInfo {
      **/
     @Getter
     @Setter
-    private static UserInfo instance ;
+    private static UserInfo instance = new UserInfo() ;
     /**
      * 平台
      */

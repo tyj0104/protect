@@ -15,46 +15,73 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--include 'proguard-rules.pro'
+#-include 'proguard-rules.pro'
+#
+#
+#-dontwarn java.**
+#-dontwarn sun.**
+#-dontwarn android.**
+#-dontwarn com.google.**
+#-dontwarn okio.**
+#
+#
+##Response
 
 
+#代码混淆压缩比，在0~7之间，默认为5，一般不做修改
+-optimizationpasses 5
 
--optimizationpasses 5          # 指定代码的压缩级别
--dontusemixedcaseclassnames   # 是否使用大小写混合
--dontpreverify           # 混淆时是否做预校验
--verbose                # 混淆时是否记录日志
+#混合时不使用大小写混合，混合后的类名为小写
+-dontusemixedcaseclassnames
 
--dontwarn java.**
--dontwarn sun.**
+#指定不去忽略非公共库的类
+-dontskipnonpubliclibraryclasses
 
+#这句话能够使我们的项目混淆后产生映射文件
+#包含有类名->混淆后类名的映射关系
+-verbose
+
+#指定不去忽略非公共库的类
+-dontskipnonpubliclibraryclassmembers
+
+#不做预校验，preverify是proguard的四个步骤之一，Android不需要preverify，去掉这一步能够加快混淆速度。
+-dontpreverify
+
+#保留Annotation不混淆
+-keepattributes *Annotation*,InnerClasses
+#避免混淆泛型
+-keepattributes Signature
+
+#抛出异常时保留代码行号
+-keepattributes SourceFile,LineNumberTable
+
+
+#指定混淆是采用的算法，后面的参数是一个过滤器
+#这个过滤器是谷歌推荐的算法，一般不做更改
+-optimizations !code/simplification/cast,!field/*,!class/merging/*
+-ignorewarnings
 -dontwarn android.**
+-dontwarn org.apache.**
 -dontwarn com.google.**
-
+-dontwarn com.squareup.okhttp.**
 -dontwarn okio.**
+-dontwarn okhttp3.**
 -dontwarn retrofit2.**
 
+-keepattributes SourceFile,LineNumberTable
 
-
-
-
-#Response
+-keep class com.squareup.okhttp.** {*;}
+-keep class okhttp3.** {*;}
+-keep class okio.** {*;}
+-keep class com.squareup.picasso.** {*;}
+-keep class android.** {*;}
+-keep class com.umeng.** {*;}
+-keep class org.apache.** {*;}
+-keep public class com.google.gson.**
+-keep public class com.google.gson.** {public private protected *;}
+-keep public class com.example.jay.myapplication.bean.** {*;}
 -keepclassmembers class com.example.jay.myapplication.net.Response { <init>(); }
 -keepclassmembers class * extends com.example.jay.myapplication.net.Response { <init>(); }
-
-
-
-#-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*  # 混淆时所采用的算法
-#
-#-keep public class * extends android.app.Activity      # 保持哪些类不被混淆
-#-keep public class * extends android.app.Application   # 保持哪些类不被混淆
-#-keep public class * extends android.app.Service       # 保持哪些类不被混淆
-#-keep public class * extends android.content.BroadcastReceiver  # 保持哪些类不被混淆
-#-keep public class * extends android.content.ContentProvider    # 保持哪些类不被混淆
-#-keep public class * extends android.app.backup.BackupAgentHelper # 保持哪些类不被混淆
-#-keep public class * extends android.preference.Preference        # 保持哪些类不被混淆
-#-keep public class com.android.vending.licensing.ILicensingService    # 保持哪些类不被混淆
-
-
 -keepclassmembernames class com.example.jay.myapplication.bean.AdBean$*{ *; }
 -keepclassmembernames class com.example.jay.myapplication.bean.LoginBean$*{ *; }
 -keepclassmembernames class com.example.jay.myapplication.bean.LoginModel$*{ *; }
@@ -63,25 +90,7 @@
 -keepclassmembernames class com.example.jay.myapplication.bean.SuccessfulCaseBean$*{ *; }
 -keepclassmembernames class com.example.jay.myapplication.bean.UserInfo$*{ *; }
 
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
 
-
-#
-#-keepclasseswithmembernames class * {  # 保持 native 方法不被混淆
-#    native <methods>;
-#}
-#-keepclasseswithmembers class * {   # 保持自定义控件类不被混淆
-#    public <init>(android.content.Context, android.util.AttributeSet);
-#}
-#-keepclasseswithmembers class * {# 保持自定义控件类不被混淆
-#    public <init>(android.content.Context, android.util.AttributeSet, int);
-#}
-#-keepclassmembers class * extends android.app.Activity { # 保持自定义控件类不被混淆
-#    public void *(android.view.View);
-#}
-#-keepclassmembers enum * {     # 保持枚举 enum 类不被混淆
-#    public static **[] values();
-#    public static ** valueOf(java.lang.String);
-#}
-#-keep class * implements android.os.Parcelable { # 保持 Parcelable 不被混淆
-#    public static final android.os.Parcelable$Creator *;
-#}
+}
