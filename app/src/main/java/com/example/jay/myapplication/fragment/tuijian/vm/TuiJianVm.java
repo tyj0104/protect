@@ -3,7 +3,7 @@ package com.example.jay.myapplication.fragment.tuijian.vm;
 import android.support.annotation.NonNull;
 
 import com.example.jay.myapplication.fragment.service.vm.VM;
-import com.example.jay.myapplication.fragment.tuijian.adapter.TuiJianBean;
+import com.example.jay.myapplication.bean.TuiJianBean;
 
 /**
  * Created by jay on 2018/3/9.

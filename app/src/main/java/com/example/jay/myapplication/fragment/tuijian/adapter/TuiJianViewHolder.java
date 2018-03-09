@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.jay.myapplication.R;
+import com.example.jay.myapplication.bean.TuiJianBean;
 import com.example.jay.myapplication.fragment.tuijian.vm.TuiJianVm;
 import com.example.jay.myapplication.widget.RatingBarView;
 import com.wangjie.seizerecyclerview.BaseViewHolder;

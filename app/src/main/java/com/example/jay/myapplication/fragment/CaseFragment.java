@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jay.myapplication.R;
+import com.example.jay.myapplication.base.fragment.BaseFragment;
 import com.example.jay.myapplication.databinding.FrgmentCaseBinding;
 
 /**

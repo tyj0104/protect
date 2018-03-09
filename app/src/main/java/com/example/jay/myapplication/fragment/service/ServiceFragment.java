@@ -10,13 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jay.myapplication.R;
+import com.example.jay.myapplication.base.adapter.XiaoErBaseSeizeAdapter;
 import com.example.jay.myapplication.bean.AdBean;
 import com.example.jay.myapplication.bean.RecommendBean;
 import com.example.jay.myapplication.bean.SuccessfulCaseBean;
 import com.example.jay.myapplication.bean.UserInfo;
-import com.example.jay.myapplication.databinding.FrgmentSevicehallBinding;
-import com.example.jay.myapplication.fragment.BaseFragment;
-import com.example.jay.myapplication.fragment.service.adapter.ServiceHallAdapter;
+import com.example.jay.myapplication.base.fragment.BaseFragment;
 import com.example.jay.myapplication.fragment.service.adapter.ad.AdSeizeAdapter;
 import com.example.jay.myapplication.fragment.service.adapter.recommend.RecommendSeizeAdapter;
 import com.example.jay.myapplication.fragment.service.adapter.successfulcase.SuccessfulCaseSeizeAdapter;
@@ -37,7 +36,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAdSeizeAdapterListener, RecommendSeizeAdapter.OnRecommendSeizeAdapterListener {
-    private FrgmentSevicehallBinding mBinding;
+    private com.example.jay.myapplication.databinding.FrgmentSevicehallBinding mBinding;
     private AdSeizeAdapter adSeizeAdapter;
     private RecommendSeizeAdapter recommendSeizeAdapter;
     private MainActivity activity;
@@ -58,8 +57,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
         xuQiuFang = UserInfo.getInstance().isXuQiuFang();
         RecyclerView recyclerView = (RecyclerView) mBinding.getRoot().findViewById(R.id.fragment_service_hall_rl);
 
-
-        ServiceHallAdapter adapter = new ServiceHallAdapter();
+        XiaoErBaseSeizeAdapter adapter = new XiaoErBaseSeizeAdapter();
         adSeizeAdapter = new AdSeizeAdapter();
         recommendSeizeAdapter = new RecommendSeizeAdapter();
         successfulCaseSeizeAdapter = new SuccessfulCaseSeizeAdapter();

@@ -1,4 +1,4 @@
-package com.example.jay.myapplication.ui;
+package com.example.jay.myapplication.base.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

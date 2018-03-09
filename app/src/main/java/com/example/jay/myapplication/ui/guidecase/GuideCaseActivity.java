@@ -7,8 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.example.jay.myapplication.R;
-import com.example.jay.myapplication.databinding.ActivityGuideBinding;
-import com.example.jay.myapplication.ui.BaseActivity;
+import com.example.jay.myapplication.base.activity.BaseActivity;
 import com.example.jay.myapplication.ui.main.MainActivity;
 
 /**
@@ -17,7 +16,7 @@ import com.example.jay.myapplication.ui.main.MainActivity;
 
 public class GuideCaseActivity extends BaseActivity implements View.OnClickListener {
 
-    private ActivityGuideBinding mBinding;
+    private com.example.jay.myapplication.databinding.ActivityGuideBinding mBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

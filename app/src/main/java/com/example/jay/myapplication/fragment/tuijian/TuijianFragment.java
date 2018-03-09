@@ -10,11 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jay.myapplication.R;
+import com.example.jay.myapplication.base.adapter.XiaoErBaseSeizeAdapter;
 import com.example.jay.myapplication.bean.UserInfo;
-import com.example.jay.myapplication.databinding.FrgmentTuijianBinding;
-import com.example.jay.myapplication.fragment.BaseFragment;
-import com.example.jay.myapplication.fragment.service.vm.RecommendVM;
-import com.example.jay.myapplication.fragment.tuijian.adapter.TuiJianBean;
+import com.example.jay.myapplication.base.fragment.BaseFragment;
+import com.example.jay.myapplication.bean.TuiJianBean;
 import com.example.jay.myapplication.fragment.tuijian.adapter.TuijianAdapter;
 import com.example.jay.myapplication.fragment.tuijian.vm.TuiJianVm;
 import com.example.jay.myapplication.ui.main.MainActivity;
@@ -31,14 +30,14 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class TuijianFragment extends BaseFragment {
-    private FrgmentTuijianBinding mBinding;
+    private com.example.jay.myapplication.databinding.FrgmentTuijianBinding mBinding;
 
     private MainActivity activity;
 
     private boolean xuQiuFang;
 
-   private RecyclerView recll;
-    private TuiJianPrarentAdapter mTuiJianPrarentAdapter;
+    private RecyclerView recll;
+    //    private TuiJianPrarentAdapter mTuiJianPrarentAdapter;
     private TuijianAdapter mTuijianAdapter;
 
     @Nullable
@@ -49,6 +48,7 @@ public class TuijianFragment extends BaseFragment {
         initDatas();
         return mBinding.getRoot();
     }
+
     private void initView() {
         activity = (MainActivity) getActivity();
         xuQiuFang = UserInfo.getInstance().isXuQiuFang();
@@ -56,7 +56,7 @@ public class TuijianFragment extends BaseFragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recll.setLayoutManager(linearLayoutManager);
-        TuiJianPrarentAdapter prarentAdapter = new TuiJianPrarentAdapter();
+        XiaoErBaseSeizeAdapter prarentAdapter = new XiaoErBaseSeizeAdapter();
         mTuijianAdapter = new TuijianAdapter();
         prarentAdapter.setSeizeAdapters(mTuijianAdapter);
         recll.setAdapter(prarentAdapter);
@@ -64,18 +64,18 @@ public class TuijianFragment extends BaseFragment {
 
     private void initDatas() {
         List<TuiJianBean> list;
-        if (!xuQiuFang) {
-         list = new ArrayList<>();
-        for (int i = 0; i <10 ; i++) {
-            TuiJianBean ben = new TuiJianBean();
-            ben.setName("泰勒");
-            if (i < 5) {
-                ben.setStar(i + "");
-            } else {
-                ben.setStar("5");
+        if (xuQiuFang) {
+            list = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                TuiJianBean ben = new TuiJianBean();
+                ben.setName("泰勒");
+                if (i < 5) {
+                    ben.setStar(i + "");
+                } else {
+                    ben.setStar("5");
+                }
+                list.add(ben);
             }
-            list.add(ben);
-        }
             Flowable.just(list)
                     .subscribeOn(Schedulers.io())
                     .flatMap(Flowable::fromIterable)
@@ -87,8 +87,6 @@ public class TuijianFragment extends BaseFragment {
                         mTuijianAdapter.notifyDataSetChanged();
                     });
         }
-
-
 
 
     }

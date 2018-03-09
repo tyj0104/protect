@@ -1,4 +1,4 @@
-package com.example.jay.myapplication.fragment.tuijian.adapter;
+package com.example.jay.myapplication.bean;
 
 import java.io.Serializable;
 

@@ -13,18 +13,17 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.databinding.ActivityMainBinding;
-import com.example.jay.myapplication.fragment.BaseFragment;
+import com.example.jay.myapplication.base.fragment.BaseFragment;
 import com.example.jay.myapplication.net.ApiHelper;
-import com.example.jay.myapplication.ui.BaseActivity;
+import com.example.jay.myapplication.base.activity.BaseActivity;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.http.HEAD;
 
 public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
 
+    private long lastBackTime = 0;
     private ActivityMainBinding binding;
-    private BottomNavigationBar mNavigationBar;
     private String[] titleIds = {"服务大厅", "服务推荐", "我的消息", "成功案例", "个人中心"};
 
     @Override
@@ -35,12 +34,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         printLog();
         setDefaultFragment();
 
-  //     test();
+        //     test();
     }
 
     private void initBottomNavigationBar() {
         boolean xuQiuFang = UserInfo.getInstance().isXuQiuFang();
-        mNavigationBar = binding.bottomNavigationBar;
+        BottomNavigationBar mNavigationBar = binding.bottomNavigationBar;
 
         BottomNavigationItem serviceHallItem = new BottomNavigationItem(R.mipmap.hall, xuQiuFang ? "服务大厅" : "需求大厅");
         mNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
@@ -135,5 +134,20 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     @Override
     public void onTabReselected(int position) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        boolean isValide = System.currentTimeMillis() - lastBackTime < 1500;
+        lastBackTime = System.currentTimeMillis();
+        if (isValide) {
+            //退出app时，清空所有View
+//            mainVp.removeAllViews();
+//            viewRl.removeAllViews();
+//            ToastUtils.clearToast();//退出应用的时候清空全局的TOAST
+            super.onBackPressed();
+        } else {
+            Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
+        }
     }
 }

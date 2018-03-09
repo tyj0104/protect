@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.RegisterModel;
 import com.example.jay.myapplication.net.ApiHelper;
-import com.example.jay.myapplication.ui.BaseActivity;
+import com.example.jay.myapplication.base.activity.BaseActivity;
 import com.example.jay.myapplication.ui.agreement.AgreementActivity;
 import com.example.jay.myapplication.utils.JsonUtil;
 

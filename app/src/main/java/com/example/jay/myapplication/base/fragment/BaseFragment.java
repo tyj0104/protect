@@ -1,4 +1,4 @@
-package com.example.jay.myapplication.fragment;
+package com.example.jay.myapplication.base.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
