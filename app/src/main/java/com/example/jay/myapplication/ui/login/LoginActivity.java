@@ -84,14 +84,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 .subscribe(o -> {
                     LoginModel loginModel = JsonUtil.fromJson(o, LoginModel.class);
                     if (loginModel == null) {
-//                        Toast.makeText(LoginActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
+//
                         showToast(LoginActivity.this, "网络出现了问题");
                         return;
                     }
                     LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
                     if ("1".equals(loginBean.getS_result())) {
                         cancelLoadingDialog(LoginActivity.this);
-                        startActivity(new Intent(LoginActivity.this,GuideCaseActivity.class));
+                        startActivity(new Intent(LoginActivity.this, GuideCaseActivity.class));
                         /**
                          * 保存用户登录信息
                          */
@@ -101,7 +101,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         Toast.makeText(LoginActivity.this, loginBean.getError_desc(), Toast.LENGTH_SHORT).show();
                     }
                     Log.e("test", "  请求结果 ===>" + o.toString());
-                });
+
+
+                }, e -> Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 
     /**
@@ -125,11 +127,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 String user = userName.getText().toString().trim();
                 String pass = passWord.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass) && xq != -1) {
-                    //请求登陆
-                    showLoadingDialog(LoginActivity.this, "登录中...");
-                    login(user, pass);
-                }
+//                if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(pass) && xq != -1) {
+//                    //请求登陆
+//                    showLoadingDialog(LoginActivity.this, "登录中...");
+//                    login(user, pass);
+//                }
+
+                login2();
                 break;
             case R.id.login_register:
                 startActivity(new Intent(this, RegisterActivity.class));
@@ -147,5 +151,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             default:
                 break;
         }
+    }
+
+    private void login2() {
+        UserInfo.getInstance().setXuQiuFang(xq == 1);
+        startActivity(new Intent(LoginActivity.this, GuideCaseActivity.class));
+
     }
 }

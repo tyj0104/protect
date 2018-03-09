@@ -25,9 +25,7 @@ public class RatingBarView extends LinearLayout {
     public float defaultStarSize =20;//默认星星大小
     public int  defaultStarCount =5;//默认星星个数
 
-//    public void setClickable(boolean clickable) {
-//        this.mClickable = clickable;
-//    }
+
 
     public RatingBarView(Context context, AttributeSet attrs) {
         super(context, attrs);

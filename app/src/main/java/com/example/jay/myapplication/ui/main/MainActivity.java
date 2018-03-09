@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         printLog();
         setDefaultFragment();
 
-       test();
+  //     test();
     }
 
     private void initBottomNavigationBar() {
