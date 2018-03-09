@@ -25,7 +25,6 @@ public class RecommendSeizeAdapter extends BaseSeizeAdapter {
     public OnRecommendSeizeAdapterListener getOnRecommendSeizeAdapterListener() {
         return onRecommendSeizeAdapterListener;
     }
-
     public void setOnRecommendSeizeAdapterListener(OnRecommendSeizeAdapterListener onRecommendSeizeAdapterListener) {
         this.onRecommendSeizeAdapterListener = onRecommendSeizeAdapterListener;
     }
