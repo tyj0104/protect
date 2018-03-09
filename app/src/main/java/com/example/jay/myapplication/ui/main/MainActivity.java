@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -33,7 +34,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         printLog();
         setDefaultFragment();
 
-       test();
+        test();
     }
 
     private void initBottomNavigationBar() {
@@ -90,12 +91,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     private void test() {
         ApiHelper.getApi().SelServList1(UserInfo.getInstance().sub_code, UserInfo.getInstance().getSub_usercode(),
                 "A01_APP_SelServList1", UserInfo.getInstance().getSession_id(), UserInfo.getInstance().getLogin_id(),
-                UserInfo.getInstance().getLogin_id(),"0","10")
+                UserInfo.getInstance().getLogin_id(), "0", "10")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(o -> {
-                    System.out.println(" =======A01_APP_SelServList1 == "+o.toString());
-                });
+                    System.out.println(" =======A01_APP_SelServList1 == " + o.toString());
+                }, e -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 
     private void printLog() {

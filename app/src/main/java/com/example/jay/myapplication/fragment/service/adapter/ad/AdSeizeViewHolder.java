@@ -41,8 +41,8 @@ public class AdSeizeViewHolder extends BaseViewHolder implements View.OnClickLis
     public void onBindViewHolder(BaseViewHolder baseViewHolder, SeizePosition seizePosition) {
         if (!adSeizeAdapter.getXuQiuFang()) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.MATCH_PARENT, ResUtil.dip2px(context, 180));
-            int px = ResUtil.dip2px(context, 20);
+                    RelativeLayout.LayoutParams.MATCH_PARENT, ResUtil.dip2px(180));
+            int px = ResUtil.dip2px(20);
             layoutParams.setMargins(px, px, px, 0);
             view.setLayoutParams(layoutParams);
         }

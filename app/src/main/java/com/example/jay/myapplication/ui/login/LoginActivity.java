@@ -3,24 +3,17 @@ package com.example.jay.myapplication.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.LoginModel;
 import com.example.jay.myapplication.bean.UserInfo;
-import com.example.jay.myapplication.net.ApiHelper;
 import com.example.jay.myapplication.ui.BaseActivity;
 import com.example.jay.myapplication.ui.guidecase.GuideCaseActivity;
 import com.example.jay.myapplication.ui.register.RegisterActivity;
-import com.example.jay.myapplication.utils.JsonUtil;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -77,31 +70,32 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * @param pass
      */
     private void login(String user, String pass) {
-
-        ApiHelper.getApi().login(ApiHelper.sub_code, ApiHelper.sub_usercode, param_name, user, pass, xq == 1 ? "1" : "0", xq == 1 ? "0" : "1")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(o -> {
-                    LoginModel loginModel = JsonUtil.fromJson(o, LoginModel.class);
-                    if (loginModel == null) {
-//                        Toast.makeText(LoginActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
-                        showToast(LoginActivity.this, "网络出现了问题");
-                        return;
-                    }
-                    LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
-                    if ("1".equals(loginBean.getS_result())) {
-                        cancelLoadingDialog(LoginActivity.this);
-                        startActivity(new Intent(LoginActivity.this,GuideCaseActivity.class));
-                        /**
-                         * 保存用户登录信息
-                         */
-                        setUserInfo(loginBean);
-                        finish();
-                    } else {
-                        Toast.makeText(LoginActivity.this, loginBean.getError_desc(), Toast.LENGTH_SHORT).show();
-                    }
-                    Log.e("test", "  请求结果 ===>" + o.toString());
-                });
+        UserInfo.getInstance().setXuQiuFang(xq == 1);
+        startActivity(new Intent(LoginActivity.this, GuideCaseActivity.class));
+//        ApiHelper.getApi().login(ApiHelper.sub_code, ApiHelper.sub_usercode, param_name, user, pass, xq == 1 ? "1" : "0", xq == 1 ? "0" : "1")
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(o -> {
+//                    LoginModel loginModel = JsonUtil.fromJson(o, LoginModel.class);
+//                    if (loginModel == null) {
+////                        Toast.makeText(LoginActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
+//                        showToast(LoginActivity.this, "网络出现了问题");
+//                        return;
+//                    }
+//                    LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
+//                    if ("1".equals(loginBean.getS_result())) {
+//                        cancelLoadingDialog(LoginActivity.this);
+//                        startActivity(new Intent(LoginActivity.this,GuideCaseActivity.class));
+//                        /**
+//                         * 保存用户登录信息
+//                         */
+//                        setUserInfo(loginBean);
+//                        finish();
+//                    } else {
+//                        Toast.makeText(LoginActivity.this, loginBean.getError_desc(), Toast.LENGTH_SHORT).show();
+//                    }
+//                    Log.e("test", "  请求结果 ===>" + o.toString());
+//                });
     }
 
     /**
