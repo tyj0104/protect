@@ -56,15 +56,15 @@ public class TuijianFragment extends BaseFragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recll.setLayoutManager(linearLayoutManager);
-
         TuiJianPrarentAdapter prarentAdapter = new TuiJianPrarentAdapter();
         mTuijianAdapter = new TuijianAdapter();
         prarentAdapter.setSeizeAdapters(mTuijianAdapter);
+        recll.setAdapter(prarentAdapter);
     }
 
     private void initDatas() {
         List<TuiJianBean> list;
-        if (xuQiuFang) {
+        if (!xuQiuFang) {
          list = new ArrayList<>();
         for (int i = 0; i <10 ; i++) {
             TuiJianBean ben = new TuiJianBean();
@@ -82,8 +82,8 @@ public class TuijianFragment extends BaseFragment {
                     .map(TuiJianVm::new)
                     .toList()
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(recommendVMs -> {
-                        mTuijianAdapter.setList(recommendVMs);
+                    .subscribe(tuijianVms -> {
+                        mTuijianAdapter.setList(tuijianVms);
                         mTuijianAdapter.notifyDataSetChanged();
                     });
         }
