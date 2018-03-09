@@ -1,6 +1,5 @@
 package com.example.jay.myapplication.utils;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,9 +18,9 @@ import com.example.jay.myapplication.XiaoerApplication;
 public class ResUtil {
 //    public static Drawable DEFAULT_PLACE_HOLDER = new ColorDrawable(Color.GRAY);
 
-    public static int dip2px(Context context,float dpValue) {
+    public static int dip2px(float dpValue) {
         try {
-            final float scale = context.getResources().getDisplayMetrics().density;
+            final float scale = XiaoerApplication.getInstances().getResources().getDisplayMetrics().density;
             return (int) (dpValue * scale + 0.5f);
         } catch (Throwable throwable) {
             // igonre
