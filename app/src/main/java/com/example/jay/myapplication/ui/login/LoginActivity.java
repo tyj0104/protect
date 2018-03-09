@@ -72,6 +72,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void login(String user, String pass) {
         UserInfo.getInstance().setXuQiuFang(xq == 1);
         startActivity(new Intent(LoginActivity.this, GuideCaseActivity.class));
+        finish();
 //        ApiHelper.getApi().login(ApiHelper.sub_code, ApiHelper.sub_usercode, param_name, user, pass, xq == 1 ? "1" : "0", xq == 1 ? "0" : "1")
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
