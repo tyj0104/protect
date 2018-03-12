@@ -150,7 +150,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void login2() {
-//        UserInfo.getInstance().setXuQiuFang(xq == 1);
+        UserInfo.getInstance().setXuQiuFang(true);
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }

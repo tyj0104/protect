@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="服务方推荐:"
+        android:text="小二推荐:"
         android:textColor="#000"
         android:textSize="18dp"/>
 </LinearLayout>

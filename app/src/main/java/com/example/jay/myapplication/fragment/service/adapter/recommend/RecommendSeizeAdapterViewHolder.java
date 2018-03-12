@@ -28,15 +28,19 @@ public class RecommendSeizeAdapterViewHolder extends BaseViewHolder implements V
     private final RatingBarView star;
     private final TextView name;
     private final Context context;
+    private final TextView scroeNum;
+    private final TextView company_name;
     private int position;
 
     public RecommendSeizeAdapterViewHolder(RecommendSeizeAdapter recommendSeizeAdapter, ViewGroup parent) {
         super(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_service_recommend, parent, false));
         this.recommendSeizeAdapter = recommendSeizeAdapter;
         context = parent.getContext();
-        pic = (ImageView) itemView.findViewById(R.id.item_service_recommend_iv);
-        name = (TextView) itemView.findViewById(R.id.item_service_recommend_name_tv);
-        desc = (TextView) itemView.findViewById(R.id.item_service_recommend_desc_tv);
+        pic = (ImageView) itemView.findViewById(R.id.item_service_recommend_iv);//负责人头像
+        name = (TextView) itemView.findViewById(R.id.item_service_recommend_name_tv);//负责人
+        desc = (TextView) itemView.findViewById(R.id.item_service_recommend_desc_tv);//成功安例有几个
+        scroeNum = (TextView) itemView.findViewById(R.id.item_service_recommend_score_num);//评分
+        company_name = (TextView) itemView.findViewById(R.id.item_service_recommend_company_name_tv);//公司名称
         star = (RatingBarView) itemView.findViewById(R.id.item_service_recommend_rb);
         RelativeLayout view = (RelativeLayout) itemView.findViewById(R.id.item_service_recommend_view);
 
@@ -52,7 +56,7 @@ public class RecommendSeizeAdapterViewHolder extends BaseViewHolder implements V
         }
         RecommendBean model = recommendVM.getModel();
         name.setText(model.getName());
-        desc.setText(model.getDesc());
+        desc.setText("成功案例：6 | 擅长：许可证、环评、环境咨询");
         star.setStar(Float.valueOf(model.getStar()));
 
         Glide.with(context)

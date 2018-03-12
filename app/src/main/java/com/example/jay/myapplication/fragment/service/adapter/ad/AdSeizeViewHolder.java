@@ -33,22 +33,28 @@ public class AdSeizeViewHolder extends BaseViewHolder implements View.OnClickLis
         content = (TextView) itemView.findViewById(R.id.item_service_ad_tv);
         pic = (ImageView) itemView.findViewById(R.id.item_service_ad_iv);
         view = (RelativeLayout) itemView.findViewById(R.id.item_service_ad_view);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, ResUtil.px2dip(300));
+        int px = ResUtil.dip2px(10);
+        layoutParams.setMargins(px, px, px, 0);
+        view.setLayoutParams(layoutParams);
         view.setOnClickListener(this);
-        pic.setVisibility(View.GONE);
+//        pic.setVisibility(View.GONE);
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder baseViewHolder, SeizePosition seizePosition) {
-        if (!adSeizeAdapter.getXuQiuFang()) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.MATCH_PARENT, ResUtil.dip2px(180));
-            int px = ResUtil.dip2px(20);
-            layoutParams.setMargins(px, px, px, 0);
-            view.setLayoutParams(layoutParams);
-        }
+//        if (!adSeizeAdapter.getXuQiuFang()) {
+//            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+//                    RelativeLayout.LayoutParams.MATCH_PARENT, ResUtil.px2dip(300));
+//            int px = ResUtil.dip2px(20);
+//            layoutParams.setMargins(px, px, px, 0);
+//            view.setLayoutParams(layoutParams);
+//        }
         AdVM adVM = adSeizeAdapter.getAdVM();
-        Glide.with(context).load(adVM.getPic()).into(pic);
-        content.setText(adVM.getContent());
+        Glide.with(context).load(R.mipmap.icon_banner).into(pic);
+//        Glide.with(context).load(adVM.getPic()).into(pic);
+//        content.setText(adVM.getContent());
     }
 
     @Override

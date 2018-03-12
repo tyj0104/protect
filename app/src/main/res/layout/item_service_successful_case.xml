@@ -1,90 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="10dp"
-    android:background="@drawable/rectangle"
-    android:orientation="vertical">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/item_successful_case_01_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingTop="5dp"
-            android:textColor="#000"
-            android:textSize="15sp"
-            tools:text="老田的公司许可证需求项目"/>
-
-        <TextView
-            android:id="@+id/item_successful_case_04_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:paddingRight="5dp"
-            android:paddingTop="5dp"
-            android:textColor="#000"
-            android:textSize="15sp"
-            android:visibility="gone"
-            tools:text="？悬赏金钻:"/>
-    </RelativeLayout>
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp">
 
     <TextView
-        android:id="@+id/item_successful_case_02_tv"
+        android:id="@+id/item_successful_case_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="5dp"
-        android:textColor="#000"
-        android:textSize="15sp"
-        tools:text="与老杜服务方"/>
+        android:layout_centerVertical="true"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:text="陈建忠"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/item_successful_case_ll"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_successful_case_name_tv"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_successful_case_05_tv"
+            android:id="@+id/item_successful_case_project_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:text="已完成"
-            android:textColor="#000"
-            android:textSize="15sp"/>
+            android:layout_gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:lineSpacingMultiplier="0.9"
+            android:text="许可证项目"
+            android:textColor="@color/blue"
+            android:textSize="13sp"/>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/blue"/>
 
         <TextView
-            android:id="@+id/item_successful_case_06_tv"
+            android:id="@+id/item_successful_case_time_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/item_successful_case_05_tv"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:text="已关注"
-            android:textColor="#000"
-            android:textSize="15sp"
-            android:visibility="gone"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:includeFontPadding="false"
+            android:lineSpacingMultiplier="0.9"
+            android:text="60分钟之前发布"
+            android:textSize="13sp"/>
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/item_successful_case_03_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:paddingBottom="5dp"
-            android:paddingRight="5dp"
-            android:textColor="#000"
-            android:textSize="15sp"
-            tools:text="10分钟之前完成"/>
+    <TextView
+        android:id="@+id/item_successful_case_company_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_successful_case_ll"
+        android:text="杭州市污水处理厂"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
 
-    </RelativeLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_launcher"/>
 
-</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/item_successful_case_ll"
+        android:layout_marginTop="10dp"
+        android:background="@color/black_thirty_percent"/>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_successful_case_01_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:paddingLeft="5dp"-->
+    <!--android:paddingTop="5dp"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"-->
+    <!--tools:text="老田的公司许可证需求项目"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_successful_case_04_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:paddingRight="5dp"-->
+    <!--android:paddingTop="5dp"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"-->
+    <!--android:visibility="gone"-->
+    <!--tools:text="？悬赏金钻:"/>-->
+    <!--</RelativeLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_successful_case_02_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:paddingLeft="5dp"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"-->
+    <!--tools:text="与老杜服务方"/>-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="5dp">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_successful_case_05_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:paddingBottom="5dp"-->
+    <!--android:paddingLeft="5dp"-->
+    <!--android:text="已完成"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_successful_case_06_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@+id/item_successful_case_05_tv"-->
+    <!--android:paddingBottom="5dp"-->
+    <!--android:paddingLeft="5dp"-->
+    <!--android:text="已关注"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"-->
+    <!--android:visibility="gone"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_successful_case_03_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:paddingBottom="5dp"-->
+    <!--android:paddingRight="5dp"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"-->
+    <!--tools:text="10分钟之前完成"/>-->
+
+    <!--</RelativeLayout>-->
+
+</RelativeLayout>

@@ -76,6 +76,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
         //公告位
         AdBean adBean = new AdBean();
         adBean.setContent("我不是好人，我要做一个坏人，老田你看着办，是死，是活，你一句话，我去解决了小杜");
+//        adBean.setPic();
         Flowable.just(adBean)
                 .subscribeOn(Schedulers.io())
                 .map(AdVM::new)

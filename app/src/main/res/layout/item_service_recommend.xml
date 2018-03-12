@@ -5,15 +5,15 @@
     android:id="@+id/item_service_recommend_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/item_service_recommend_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
         android:background="#3000"/>
 
     <TextView
@@ -21,6 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
         android:layout_marginTop="2dp"
         android:layout_toRightOf="@+id/item_service_recommend_iv"
         android:text="老田"
@@ -32,21 +34,52 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_service_recommend_name_tv"
         android:layout_marginLeft="10dp"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
         android:layout_marginTop="6dp"
         android:layout_toRightOf="@+id/item_service_recommend_iv"
         android:text="老田的公司需求小杜"
         android:textSize="14sp"/>
 
+    <TextView
+        android:id="@+id/item_service_recommend_company_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_service_recommend_desc_tv"
+        android:layout_marginLeft="10dp"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/item_service_recommend_iv"
+        android:text="浙江省环境服份有限公司 | 杭州"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/item_service_recommend_score_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="4.5分"/>
+
     <com.example.jay.myapplication.widget.RatingBarView
         android:id="@+id/item_service_recommend_rb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/item_service_recommend_score_num"
         app:starCount="5"
         app:starEmpty="@mipmap/icon_star_normal"
         app:starFill="@mipmap/icon_star_fill"
         app:starHalf="@mipmap/icon_star_half"
-        app:starSize="22dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"/>
+        app:starSize="22dp"/>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:background="@color/black_thirty_percent"
+        android:layout_below="@+id/item_service_recommend_iv"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
 
 </RelativeLayout>

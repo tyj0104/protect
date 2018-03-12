@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_service_ad_view"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
     android:background="@drawable/rectangle"
     android:orientation="vertical">
 
@@ -17,13 +18,14 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:paddingLeft="5dp"
-        android:text="公告或广告"
+        android:paddingRight="5dp"
+        tools:text="公告或广告"
         android:textSize="15sp"/>
 
     <ImageView
         android:id="@+id/item_service_ad_iv"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
-        android:src="@mipmap/hall"/>
+        android:src="@mipmap/icon_banner"/>
 </RelativeLayout>
