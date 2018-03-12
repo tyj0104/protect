@@ -8,8 +8,31 @@
 
 
     <color name="yellow">#FF0</color>
-    <color name="white">#FFF</color>
 
     <color name="blue">#5677fc</color>
     <color name="blue90">#c85677fc</color>
+
+    <color name="white2">#FFFFFFFF</color>
+    <color name="white_ten_percent">#19FFFFFF</color>
+    <color name="white_fifteen_percent">#26FFFFFF</color>
+    <color name="white_twenty_percent">#33FFFFFF</color>
+    <color name="white_thirty_percent">#4CFFFFFF</color>
+    <color name="white_forty_percent">#66FFFFFF</color>
+    <color name="white_fifty_percent">#80FFFFFF</color>
+    <color name="white_sixty_percent">#99FFFFFF</color>
+    <color name="white_seventy_percent">#B2FFFFFF</color>
+    <color name="white_eighty_percent">#CCFFFFFF</color>
+    <color name="white_ninety_percent">#E5FFFFFF</color>
+
+    <color name="black">#FF000000</color>
+    <color name="black_ten_percent">#19000000</color>
+    <color name="black_fifteen_percent">#26000000</color>
+    <color name="black_twenty_percent">#33000000</color>
+    <color name="black_thirty_percent">#4C000000</color>
+    <color name="black_forty_percent">#66000000</color>
+    <color name="black_fifty_percent">#80000000</color>
+    <color name="black_sixty_percent">#99000000</color>
+    <color name="black_seventy_percent">#B2000000</color>
+    <color name="black_eighty_percent">#CC000000</color>
+    <color name="black_ninety_percent">#E5000000</color>
 </resources>

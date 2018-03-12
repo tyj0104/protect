@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_view_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,7 +12,7 @@
         android:layout_height="55dp"
         android:background="#eeeeee"
         android:gravity="center"
-        android:text="注册"
+        android:text="环保小二注册"
         android:textColor="#000"
         android:textSize="24sp"/>
 
@@ -20,34 +21,6 @@
         android:layout_height="0.7dp"
         android:layout_below="@+id/activity_register_title"
         android:background="#000"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-
-        <TextView
-            android:id="@+id/register_09"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:text="手  机  号:"
-            android:textColor="#000"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/register_et_06"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_toRightOf="@+id/register_09"
-            android:background="@drawable/rectangle"
-            android:hint=" 必填"/>
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -74,7 +47,7 @@
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@+id/register_03"
             android:background="@drawable/rectangle"
-            android:hint=" 必填"/>
+            android:hint=" 请输入您的姓名"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -101,7 +74,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@+id/register_04"
-            android:background="@drawable/rectangle"/>
+            android:background="@drawable/rectangle"
+            android:hint=" 请输入您的单位名称"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -185,6 +159,40 @@
             android:textSize="18sp"/>
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:id="@+id/register_project"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/register_09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:text="擅长项目:"
+            android:textColor="#000"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/register_et_06"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/register_09"
+            android:background="@drawable/rectangle"
+            android:gravity="center_vertical"
+            android:hint=" 请选择"
+            android:textColor="#000"
+            android:textSize="17dp"/>
+    </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -210,7 +218,7 @@
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@+id/register_06"
             android:background="@drawable/rectangle"
-            android:hint=" 必填"
+            android:hint=" 请输入您的密码"
             android:inputType="textPassword"/>
     </RelativeLayout>
 
@@ -234,12 +242,13 @@
             android:id="@+id/register_et_05"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_marginBottom="5dp"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
-            android:layout_toRightOf="@+id/register_07"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/register_07"
             android:background="@drawable/rectangle"
-            android:hint=" 必填"
+            android:hint=" 请输入您的密码"
             android:inputType="textPassword"/>
     </RelativeLayout>
 

@@ -4,7 +4,6 @@ package com.example.jay.myapplication.net;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -37,7 +36,7 @@ public interface Api {
             @Query("sub_code") String sub_code,
             @Query("sub_usercode") String sub_usercode,
             @Query("param_name") String A01_APP_Register,
-            @Field("param_value1") String um,
+//            @Field("param_value1") String um,
             @Field("param_value2") String pwd,
             @Field("param_value3") String name,
             @Field("param_value4") String provider,

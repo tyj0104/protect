@@ -15,4 +15,9 @@
         <!--<item name="colorAccent">@color/colorAccent</item>-->
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Register_PopWindow_Animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/register_pop_window_enter</item>
+        <item name="android:windowExitAnimation">@anim/register_pop_window_out</item>
+    </style>
 </resources>

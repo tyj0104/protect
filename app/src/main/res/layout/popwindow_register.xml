@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pop_01_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="擅长项目"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/pop_ok_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="确定"
+        android:textSize="18dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/pop_01_tv"
+        android:background="@color/black_thirty_percent"/>
+
+    <LinearLayout
+        android:id="@+id/pop_02_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pop_01_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/pop_02_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_popwindow_register"
+            android:gravity="center_horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:text="许可证"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/pop_03_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_popwindow_register"
+            android:gravity="center_horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:text="环    评"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pop_03_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pop_02_ll"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/pop_04_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_popwindow_register"
+            android:gravity="center_horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:text="环境监测"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/pop_05_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_popwindow_register"
+            android:gravity="center_horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:text="环境管理"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/pop_03_ll"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

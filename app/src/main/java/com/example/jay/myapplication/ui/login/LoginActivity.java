@@ -14,7 +14,7 @@ import com.example.jay.myapplication.base.activity.BaseActivity;
 import com.example.jay.myapplication.bean.LoginModel;
 import com.example.jay.myapplication.bean.UserInfo;
 import com.example.jay.myapplication.net.ApiHelper;
-import com.example.jay.myapplication.ui.guidecase.GuideCaseActivity;
+import com.example.jay.myapplication.ui.main.MainActivity;
 import com.example.jay.myapplication.ui.register.RegisterActivity;
 import com.example.jay.myapplication.utils.JsonUtil;
 
@@ -52,20 +52,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void initView() {
-        TextView weixinlogin = (TextView) findViewById(R.id.login_wei_xin_login);
+//        TextView weixinlogin = (TextView) findViewById(R.id.login_wei_xin_login);
         TextView login = (TextView) findViewById(R.id.login_login);
         TextView register = (TextView) findViewById(R.id.login_register);
-        select01 = (RadioButton) findViewById(R.id.login_select_01);
-        select02 = (RadioButton) findViewById(R.id.login_select_02);
+//        select01 = (RadioButton) findViewById(R.id.login_select_01);
+//        select02 = (RadioButton) findViewById(R.id.login_select_02);
 
         userName = (EditText) findViewById(R.id.login_user_name_ed);
         passWord = (EditText) findViewById(R.id.login_user_password_ed);
 
         login.setOnClickListener(this);
         register.setOnClickListener(this);
-        weixinlogin.setOnClickListener(this);
-        select02.setOnClickListener(this);
-        select01.setOnClickListener(this);
+//        weixinlogin.setOnClickListener(this);
+//        select02.setOnClickListener(this);
+//        select01.setOnClickListener(this);
 //        init();
     }
 
@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     LoginModel.A01APPLoginBean loginBean = loginModel.getA01_APP_Login().get(0);
                     if ("1".equals(loginBean.getS_result())) {
                         cancelLoadingDialog(LoginActivity.this);
-                        startActivity(new Intent(LoginActivity.this, GuideCaseActivity.class));
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         /**
                          * 保存用户登录信息
                          */
@@ -134,24 +134,24 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.login_register:
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
-            case R.id.login_wei_xin_login:
-                break;
-            case R.id.login_select_01:
-                select02.setChecked(false);
-                xq = 1;
-                break;
-            case R.id.login_select_02:
-                select01.setChecked(false);
-                xq = 2;
-                break;
+//            case R.id.login_wei_xin_login:
+//                break;
+//            case R.id.login_select_01:
+//                select02.setChecked(false);
+//                xq = 1;
+//                break;
+//            case R.id.login_select_02:
+//                select01.setChecked(false);
+//                xq = 2;
+//                break;
             default:
                 break;
         }
     }
 
     private void login2() {
-        UserInfo.getInstance().setXuQiuFang(xq == 1);
-        startActivity(new Intent(LoginActivity.this, GuideCaseActivity.class));
+//        UserInfo.getInstance().setXuQiuFang(xq == 1);
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
 }

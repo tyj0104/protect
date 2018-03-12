@@ -76,61 +76,61 @@
         </RelativeLayout>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="30dp">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="用户类型:"
-                android:textColor="#000"
-                android:textSize="20sp"/>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:text="用户类型:"-->
+        <!--android:textColor="#000"-->
+        <!--android:textSize="20sp"/>-->
 
-            <RelativeLayout
-                android:id="@+id/login_demand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/login_demand"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true">-->
 
-                <RadioButton
-                    android:id="@+id/login_select_01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+        <!--<RadioButton-->
+        <!--android:id="@+id/login_select_01"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@+id/login_select_01"
-                    android:text="需求方"
-                    android:textColor="#000"
-                    android:textSize="18sp"/>
-            </RelativeLayout>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:layout_toRightOf="@+id/login_select_01"-->
+        <!--android:text="需求方"-->
+        <!--android:textColor="#000"-->
+        <!--android:textSize="18sp"/>-->
+        <!--</RelativeLayout>-->
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/login_demand">
+        <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_toRightOf="@+id/login_demand">-->
 
-                <RadioButton
-                    android:id="@+id/login_select_02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+        <!--<RadioButton-->
+        <!--android:id="@+id/login_select_02"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@+id/login_select_02"
-                    android:text="服务方"
-                    android:textColor="#000"
-                    android:textSize="18sp"/>
-            </RelativeLayout>
-        </RelativeLayout>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:layout_toRightOf="@+id/login_select_02"-->
+        <!--android:text="服务方"-->
+        <!--android:textColor="#000"-->
+        <!--android:textSize="18sp"/>-->
+        <!--</RelativeLayout>-->
+        <!--</RelativeLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -162,28 +162,28 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/login_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="20dp"
-        android:text="忘记密码请绑定微信进入个人信息修改"
-        android:textColor="#000"
-        android:textSize="15sp"/>
+    <!--<TextView-->
+    <!--android:id="@+id/login_desc"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginBottom="15dp"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:text="忘记密码请绑定微信进入个人信息修改"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp"/>-->
 
-    <TextView
-        android:id="@+id/login_wei_xin_login"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/login_desc"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/selector_weixin_login"
-        android:gravity="center"
-        android:text="微信登录"
-        android:textColor="#000"
-        android:textSize="18sp"/>
+    <!--<TextView-->
+    <!--android:id="@+id/login_wei_xin_login"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_above="@+id/login_desc"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:background="@drawable/selector_weixin_login"-->
+    <!--android:gravity="center"-->
+    <!--android:text="微信登录"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="18sp"/>-->
 
 </RelativeLayout>
