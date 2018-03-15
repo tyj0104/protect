@@ -1,7 +1,9 @@
 package com.example.jay.myapplication.fragment.service.adapter.successfulcase;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.jay.myapplication.R;
@@ -14,12 +16,13 @@ import com.wangjie.seizerecyclerview.SeizePosition;
  * Created by Administrator on 2017/10/20
  */
 
-public class SuccessfulCaseSeizeAdapterViewHolder extends BaseViewHolder {
+public class SuccessfulCaseSeizeAdapterViewHolder extends BaseViewHolder implements View.OnClickListener {
     private final SuccessfulCaseSeizeAdapter successfulCaseSeizeAdapter;
     private final TextView nameTv;
     private final TextView projectNameTv;
     private final TextView timeTv;
     private final TextView companyNameTv;
+    private int position;
     //    private final TextView tv1;
 //    private final TextView tv2;
 //    private final TextView tv3;
@@ -38,15 +41,17 @@ public class SuccessfulCaseSeizeAdapterViewHolder extends BaseViewHolder {
 //        tv5 = (TextView) itemView.findViewById(R.id.item_successful_case_05_tv);
 //        tv6 = (TextView) itemView.findViewById(R.id.item_successful_case_06_tv);
 
+        RelativeLayout viewRl = (RelativeLayout) itemView.findViewById(R.id.item_successful_case_view_rl);
         nameTv = (TextView) itemView.findViewById(R.id.item_successful_case_name_tv);
         projectNameTv = (TextView) itemView.findViewById(R.id.item_successful_case_project_name_tv);
         timeTv = (TextView) itemView.findViewById(R.id.item_successful_case_time_tv);
         companyNameTv = (TextView) itemView.findViewById(R.id.item_successful_case_company_name_tv);
+        viewRl.setOnClickListener(this);
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder baseViewHolder, SeizePosition seizePosition) {
-        int position = seizePosition.getSubSourcePosition();
+        position = seizePosition.getSubSourcePosition();
         SuccessfulCaseVM successfulCaseVM = successfulCaseSeizeAdapter.getList().get(position);
         boolean xuQiuFang = successfulCaseSeizeAdapter.getXuQiuFang();
         SuccessfulCaseBean model = successfulCaseVM.getModel();
@@ -67,5 +72,20 @@ public class SuccessfulCaseSeizeAdapterViewHolder extends BaseViewHolder {
 //            tv4.setVisibility(View.GONE);
 //            tv6.setVisibility(View.GONE);
 //        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.item_successful_case_view_rl:
+                SuccessfulCaseSeizeAdapter.OnSuccessfulCaseSeizeAdapterListener onSuccessfulCaseSeizeAdapter
+                        = successfulCaseSeizeAdapter.getOnSuccessfulCaseSeizeAdapter();
+                if (onSuccessfulCaseSeizeAdapter != null) {
+                    onSuccessfulCaseSeizeAdapter.onSuccessfulCaseClick(position);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

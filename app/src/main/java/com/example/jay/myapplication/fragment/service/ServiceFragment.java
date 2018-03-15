@@ -35,7 +35,9 @@ import io.reactivex.schedulers.Schedulers;
  * Created by jay on 2017/10/19
  */
 
-public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAdSeizeAdapterListener, RecommendSeizeAdapter.OnRecommendSeizeAdapterListener {
+public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAdSeizeAdapterListener
+        , RecommendSeizeAdapter.OnRecommendSeizeAdapterListener
+        , SuccessfulCaseSeizeAdapter.OnSuccessfulCaseSeizeAdapterListener {
     private com.example.jay.myapplication.databinding.FrgmentSevicehallBinding mBinding;
     private AdSeizeAdapter adSeizeAdapter;
     private RecommendSeizeAdapter recommendSeizeAdapter;
@@ -70,6 +72,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
 
         adSeizeAdapter.setOnAdSeizeAdapterListener(this);
         recommendSeizeAdapter.setOnRecommendSeizeAdapterListener(this);
+        successfulCaseSeizeAdapter.setOnSuccessfulCaseSeizeAdapter(this);
     }
 
     private void initData() {
@@ -170,6 +173,13 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     public void onRecommendClick(int position) {
         if (activity != null) {
             activity.showToast(getContext(), "我点击了推荐" + position);
+        }
+    }
+
+    @Override
+    public void onSuccessfulCaseClick(int position) {
+        if (activity != null) {
+            activity.showToast(getContext(), "我点击了成功安例" + position);
         }
     }
 }

@@ -23,15 +23,15 @@ public class SuccessfulCaseSeizeAdapter extends BaseSeizeAdapter {
         this.xuQiuFang = xuQiuFang;
     }
 
-    public boolean getXuQiuFang() {
+    boolean getXuQiuFang() {
         return xuQiuFang;
     }
 
     public interface OnSuccessfulCaseSeizeAdapterListener {
-        void onSuccessfulCaseClick();
+        void onSuccessfulCaseClick(int position);
     }
 
-    public OnSuccessfulCaseSeizeAdapterListener getOnSuccessfulCaseSeizeAdapter() {
+    OnSuccessfulCaseSeizeAdapterListener getOnSuccessfulCaseSeizeAdapter() {
         return onSuccessfulCaseSeizeAdapter;
     }
 
@@ -39,7 +39,7 @@ public class SuccessfulCaseSeizeAdapter extends BaseSeizeAdapter {
         this.onSuccessfulCaseSeizeAdapter = onSuccessfulCaseSeizeAdapter;
     }
 
-    public List<SuccessfulCaseVM> getList() {
+    List<SuccessfulCaseVM> getList() {
         return list;
     }
 

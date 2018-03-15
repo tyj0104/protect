@@ -13,4 +13,13 @@
         <attr name="noEmpty" format="boolean" />
         <attr name="isEnable" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="RatingBarView">
+        <attr name="starSize" format="dimension"/>
+        <attr name="starCount" format="integer"/>
+        <attr name="starEmpty" format="reference"/>
+        <attr name="starFill" format="reference"/>
+        <attr name="starHalf" format="reference"/>
+    </declare-styleable>
+
 </resources>
