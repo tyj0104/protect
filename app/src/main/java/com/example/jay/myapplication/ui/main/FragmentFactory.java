@@ -3,7 +3,7 @@ package com.example.jay.myapplication.ui.main;
 
 import com.example.jay.myapplication.base.fragment.BaseFragment;
 import com.example.jay.myapplication.fragment.CaseFragment;
-import com.example.jay.myapplication.fragment.MyMsgFragment;
+import com.example.jay.myapplication.fragment.mymsg.MyMsgFragment;
 import com.example.jay.myapplication.fragment.service.ServiceFragment;
 import com.example.jay.myapplication.fragment.tuijian.TuijianFragment;
 import com.example.jay.myapplication.fragment.UserIfnoFragment;

@@ -44,4 +44,8 @@ public class BaseFragment extends RxFragment {
 
         super.onDestroy();
     }
+
+    public String getFragmentName() {
+        return "";
+    }
 }
