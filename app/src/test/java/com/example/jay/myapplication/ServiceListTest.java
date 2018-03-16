@@ -4,8 +4,6 @@ import com.example.jay.myapplication.net.ApiHelper;
 
 import org.junit.Test;
 
-import retrofit2.http.Field;
-
 /**
  * Created by jay on 2017/10/18.
  */
@@ -30,7 +28,7 @@ public class ServiceListTest {
 
     @Test
     public void regest (){
-        ApiHelper.getApi().regest(sub_code,sub_usercode,"A01_APP_Register",namme,pwd,namme,demander,provider,xieyi)
+        ApiHelper.getApi().regest(sub_code,sub_usercode,"A01_APP_Register",pwd,namme,demander,provider,xieyi)
                 .blockingFirst();
     }
 

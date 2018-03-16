@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_mymsg_tab1_view"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:id="@+id/item_mymsg_tab1_pic_iv"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:background="#3000"/>
+
+    <TextView
+        android:id="@+id/item_mymsg_tab1_project_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_mymsg_tab1_pic_iv"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:text="许可证项目"
+        android:textColor="#333333"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/item_mymsg_tab1_project_tv"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:text="发送意向"
+        android:textColor="#999999"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/item_mymsg_tab1_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_mymsg_tab1_project_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/item_mymsg_tab1_pic_iv"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:text="陈建忠"
+        android:textColor="#999999"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/item_mymsg_tab1_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:text="6分钟前"
+        android:textColor="#999999"/>
+
+    <TextView
+        android:id="@+id/item_mymsg_tab1_ok_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
+        android:text="等待对方确认"
+        android:textColor="#f39826"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/black_thirty_percent"/>
+</RelativeLayout>
