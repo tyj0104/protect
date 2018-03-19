@@ -11,7 +11,7 @@
         android:color="#fff"/>
     <stroke
         android:width="1dp"
-        android:color="#000"/>
+        android:color="@color/project_main_tv"/>
     <size
         android:width="15dp"
         android:height="15dp"/>

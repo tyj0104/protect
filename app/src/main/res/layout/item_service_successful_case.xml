@@ -16,7 +16,7 @@
         android:lineSpacingMultiplier="0.9"
         android:text="陈建忠"
         android:textColor="@color/black"
-        android:textSize="15sp"/>
+        android:textSize="14sp"/>
 
     <LinearLayout
         android:id="@+id/item_successful_case_ll"
@@ -37,7 +37,7 @@
             android:lineSpacingMultiplier="0.9"
             android:text="许可证项目"
             android:textColor="@color/blue"
-            android:textSize="13sp"/>
+            android:textSize="12sp"/>
 
         <View
             android:layout_width="120dp"
@@ -54,7 +54,7 @@
             android:includeFontPadding="false"
             android:lineSpacingMultiplier="0.9"
             android:text="60分钟之前发布"
-            android:textSize="13sp"/>
+            android:textSize="12sp"/>
     </LinearLayout>
 
     <TextView
@@ -66,12 +66,12 @@
         android:layout_toRightOf="@+id/item_successful_case_ll"
         android:text="杭州市污水处理厂"
         android:textColor="@color/black"
-        android:textSize="15sp"/>
+        android:textSize="14sp"/>
 
     <ImageView
         android:layout_width="67dp"
         android:layout_height="67dp"
-        android:translationY="-10dp"
+        android:translationY="-18dp"
         android:layout_alignParentRight="true"
         android:rotation="90"
         android:background="@drawable/shape_triangle"/>
@@ -80,12 +80,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:rotation="45"
-        android:text="完"
+        android:text="完成"
         android:textColor="#fff"
-        android:textSize="15sp"/>
+        android:textSize="12sp"/>
 
     <View
         android:layout_width="match_parent"

@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_service_ad_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp"
-    android:background="@drawable/rectangle"
-    android:orientation="vertical">
+    android:layout_marginTop="10dp">
 
     <TextView
         android:id="@+id/item_service_ad_tv"
@@ -19,13 +17,13 @@
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        tools:text="公告或广告"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        tools:text="公告或广告"/>
 
     <ImageView
         android:id="@+id/item_service_ad_iv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:src="@mipmap/icon_banner"/>
+        android:layout_height="match_parent"
+        android:background="@mipmap/icon_banner"
+        android:scaleType="fitXY"/>
 </RelativeLayout>

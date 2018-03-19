@@ -3,56 +3,73 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white2"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="#eeeeee"
-            android:gravity="center"
-            android:text="环保小二"
-            android:textColor="#000"
-            android:textSize="24sp"/>
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="55dp"-->
+        <!--android:background="@color/blue_title"-->
+        <!--android:gravity="center"-->
+        <!--android:text="环保小二"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textSize="24sp"/>-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.7dp"
-            android:background="#000"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/icon_login"/>
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.7dp"-->
+        <!--android:background="#000"/>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp">
 
-            <TextView
+            <!--<TextView-->
+            <!--android:id="@+id/login_user_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:includeFontPadding="false"-->
+            <!--android:lineSpacingMultiplier="0.9"-->
+            <!--android:text="用户名:"-->
+            <!--android:textColor="@color/project_main_tv"-->
+            <!--android:textSize="20sp"/>-->
+            <ImageView
                 android:id="@+id/login_user_name"
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:includeFontPadding="false"
-                android:lineSpacingMultiplier="0.9"
-                android:text="用户名:"
-                android:textColor="#000"
-                android:textSize="20sp"/>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35dp"
+                android:src="@mipmap/icon_login_admin"/>
 
             <EditText
                 android:id="@+id/login_user_name_ed"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="30dp"
                 android:layout_toRightOf="@+id/login_user_name"
-                android:background="@drawable/rectangle"
                 android:gravity="center_vertical"
-                android:hint=" 输入用户名"
+                android:hint="输入用户名"
                 android:includeFontPadding="false"
-                android:lineSpacingMultiplier="0.9"/>
+                android:lineSpacingMultiplier="0.9"
+                android:paddingLeft="5dp"
+                android:textColor="@color/project_main_tv"/>
 
         </RelativeLayout>
 
@@ -61,31 +78,44 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp">
 
-            <TextView
-                android:id="@+id/login_user_password"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:includeFontPadding="false"
-                android:lineSpacingMultiplier="0.9"
-                android:text="密    码:"
-                android:textColor="#000"
-                android:textSize="20sp"/>
-
             <EditText
                 android:id="@+id/login_user_password_ed"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="30dp"
                 android:layout_toRightOf="@+id/login_user_password"
-                android:background="@drawable/rectangle"
                 android:gravity="center_vertical"
-                android:hint=" 输入密码"
+                android:hint="输入密码"
                 android:includeFontPadding="false"
                 android:inputType="textPassword"
-                android:lineSpacingMultiplier="0.9"/>
+                android:lineSpacingMultiplier="0.9"
+                android:paddingLeft="5dp"
+                android:textColor="@color/project_main_tv"/>
+
+
+            <ImageView
+                android:id="@+id/login_user_password"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35dp"
+                android:src="@mipmap/icon_login_pass"/>
+            <!--<TextView-->
+            <!--android:id="@+id/login_user_password"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:includeFontPadding="false"-->
+            <!--android:lineSpacingMultiplier="0.9"-->
+            <!--android:text="密    码:"-->
+            <!--android:textColor="@color/project_main_tv"-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_alignBaseline="@+id/login_user_password_ed"-->
+            <!--android:layout_alignBottom="@+id/login_user_password_ed"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginStart="19dp"/>-->
 
         </RelativeLayout>
 
@@ -146,34 +176,39 @@
         <!--</RelativeLayout>-->
         <!--</RelativeLayout>-->
 
-        <RelativeLayout
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:gravity="center_horizontal">-->
+
+        <TextView
+            android:id="@+id/login_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
-            android:gravity="center_horizontal">
+            android:background="@drawable/selector_login_ok"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18sp"/>
 
-            <TextView
-                android:id="@+id/login_login"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:background="@drawable/selector_register_ok"
-                android:gravity="center"
-                android:text="登录"
-                android:textColor="#fff"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:id="@+id/login_register"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/login_login"
-                android:background="@drawable/selector_register_ok"
-                android:gravity="center"
-                android:text="注册"
-                android:textColor="#fff"
-                android:textSize="18sp"/>
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/login_register"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/login_login"
+            android:background="@drawable/selector_login_ok"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18sp"/>
+        <!--</RelativeLayout>-->
     </LinearLayout>
 
     <!--<TextView-->

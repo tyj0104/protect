@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_mymsg_tab2_view"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
+    android:layout_height="60dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginTop="10dp">
 
     <ImageView
         android:id="@+id/item_mymsg_tab2_pic_iv"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:background="#3000"/>
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/icon_"/>
 
     <TextView
         android:id="@+id/item_mymsg_tab2_name_tv"
@@ -23,8 +23,8 @@
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="0.9"
         android:text="陈建忠"
-        android:textColor="#333333"
-        android:textSize="18sp"/>
+        android:textColor="@color/project_main_tv"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/item_mymsg_tab2_project_tv"
@@ -38,7 +38,7 @@
         android:lineSpacingMultiplier="0.9"
         android:text="许可证项目"
         android:textColor="#999999"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
         android:lineSpacingMultiplier="0.9"
         android:text="发送意向"
         android:textColor="#999999"
-        android:textSize="15sp"/>
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/item_mymsg_tab2_time_tv"
@@ -60,7 +60,8 @@
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="0.9"
         android:text="6分钟前"
-        android:textColor="#999999"/>
+        android:textColor="#999999"
+        android:textSize="13sp"/>
 
     <TextView
         android:id="@+id/item_mymsg_tab2_ok_tv"
@@ -72,7 +73,8 @@
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="0.9"
         android:text="等待对方确认"
-        android:textColor="#f39826"/>
+        android:textColor="#f39826"
+        android:textSize="15sp"/>
 
     <View
         android:layout_width="match_parent"

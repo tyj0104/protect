@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
-            android:background="@color/colorGreen"
+            android:background="@color/blue_title"
             app:popupTheme="@style/AppTheme">
 
             <TextView
@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="排污许可证"
+                android:text="环保小二"
                 android:textColor="#FFF"
                 android:textSize="20sp"/>
         </android.support.v7.widget.Toolbar>
@@ -34,8 +34,8 @@
             android:layout_marginBottom="3dp"/>
 
         <!--<TextView-->
-            <!--android:text="服务推荐"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"/>-->
+        <!--android:text="服务推荐"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
     </LinearLayout>
 </layout>

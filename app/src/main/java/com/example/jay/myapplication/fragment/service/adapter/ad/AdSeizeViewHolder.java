@@ -8,10 +8,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.fragment.service.vm.AdVM;
-import com.example.jay.myapplication.utils.ResUtil;
 import com.wangjie.seizerecyclerview.BaseViewHolder;
 import com.wangjie.seizerecyclerview.SeizePosition;
 
@@ -33,11 +31,6 @@ public class AdSeizeViewHolder extends BaseViewHolder implements View.OnClickLis
         content = (TextView) itemView.findViewById(R.id.item_service_ad_tv);
         pic = (ImageView) itemView.findViewById(R.id.item_service_ad_iv);
         view = (RelativeLayout) itemView.findViewById(R.id.item_service_ad_view);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT, ResUtil.px2dip(300));
-        int px = ResUtil.dip2px(10);
-        layoutParams.setMargins(px, px, px, 0);
-        view.setLayoutParams(layoutParams);
         view.setOnClickListener(this);
 //        pic.setVisibility(View.GONE);
     }
@@ -52,7 +45,7 @@ public class AdSeizeViewHolder extends BaseViewHolder implements View.OnClickLis
 //            view.setLayoutParams(layoutParams);
 //        }
         AdVM adVM = adSeizeAdapter.getAdVM();
-        Glide.with(context).load(R.mipmap.icon_banner).into(pic);
+//        Glide.with(context).load(R.mipmap.icon_banner).into(pic);
 //        Glide.with(context).load(adVM.getPic()).into(pic);
 //        content.setText(adVM.getContent());
     }

@@ -8,11 +8,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.bean.RecommendBean;
 import com.example.jay.myapplication.fragment.service.vm.RecommendVM;
-import com.example.jay.myapplication.utils.gilde.CircleTransform;
 import com.example.jay.myapplication.widget.RatingBarView;
 import com.wangjie.seizerecyclerview.BaseViewHolder;
 import com.wangjie.seizerecyclerview.SeizePosition;
@@ -59,10 +57,10 @@ public class RecommendSeizeAdapterViewHolder extends BaseViewHolder implements V
         desc.setText("成功案例：6 | 擅长：许可证、环评、环境咨询");
         star.setStar(Float.valueOf(model.getStar()));
 
-        Glide.with(context)
-                .load(model.getPic())
-                .transform(new CircleTransform(context))
-                .into(pic);
+//        Glide.with(context)
+//                .load(model.getPic())
+//                .transform(new CircleTransform(context))
+//                .into(pic);
     }
 
     @Override

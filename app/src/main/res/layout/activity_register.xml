@@ -4,28 +4,29 @@
     android:id="@+id/register_view_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white2"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/activity_register_title"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#eeeeee"
+        android:background="@color/blue_title"
         android:gravity="center"
         android:text="环保小二注册"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="24sp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.7dp"
-        android:layout_below="@+id/activity_register_title"
-        android:background="#000"/>
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0.7dp"-->
+    <!--android:layout_below="@+id/activity_register_title"-->
+    <!--android:background="#000"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/register_03"
@@ -35,22 +36,24 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:text="姓        名:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/register_et_01"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/register_03"
+            android:gravity="center_vertical"
+            android:hint="请输入您的姓名"
             android:includeFontPadding="false"
             android:lineSpacingMultiplier="0.9"
-            android:gravity="center_vertical"
-            android:layout_toRightOf="@+id/register_03"
-            android:background="@drawable/rectangle"
-            android:hint=" 请输入您的姓名"/>
+            android:paddingLeft="5dp"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -66,22 +69,24 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:text="所在单位:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/register_et_02"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/register_04"
+            android:gravity="center_vertical"
+            android:hint="请输入您的单位名称"
             android:includeFontPadding="false"
             android:lineSpacingMultiplier="0.9"
-            android:gravity="center_vertical"
-            android:layout_toRightOf="@+id/register_04"
-            android:background="@drawable/rectangle"
-            android:hint=" 请输入您的单位名称"/>
+            android:paddingLeft="5dp"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -97,22 +102,32 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:text="地        区:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
-        <EditText
+        <TextView
             android:id="@+id/register_et_03"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/register_05"
+            android:gravity="center_vertical"
+            android:hint="请选择"
             android:includeFontPadding="false"
             android:lineSpacingMultiplier="0.9"
-            android:gravity="center_vertical"
-            android:layout_toRightOf="@+id/register_05"
-            android:background="@drawable/rectangle"
-            android:hint=" 如: 杭州市"/>
+            android:paddingLeft="5dp"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18dp"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/icon_login_arrow"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -127,7 +142,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:text="用户类型:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <RadioButton
@@ -146,7 +161,7 @@
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/register_01_rb"
             android:text="需求方"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <RadioButton
@@ -164,7 +179,7 @@
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/register_02_rb"
             android:text="服务方"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
     </RelativeLayout>
 
@@ -184,24 +199,32 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:text="擅长项目:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/register_et_06"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@+id/register_09"
-            android:background="@drawable/rectangle"
+            android:gravity="center_vertical"
+            android:hint="请选择"
             android:includeFontPadding="false"
             android:lineSpacingMultiplier="0.9"
-            android:gravity="center_vertical"
-            android:hint=" 请选择"
-            android:textColor="#000"
-            android:textSize="17dp"/>
+            android:paddingLeft="5dp"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18dp"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/icon_login_arrow"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -217,23 +240,25 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:text="密        码:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/register_et_04"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
-            android:includeFontPadding="false"
-            android:lineSpacingMultiplier="0.9"
-            android:gravity="center_vertical"
             android:layout_toRightOf="@+id/register_06"
-            android:background="@drawable/rectangle"
-            android:hint=" 请输入您的密码"
-            android:inputType="textPassword"/>
+            android:gravity="center_vertical"
+            android:hint="请输入您的密码"
+            android:includeFontPadding="false"
+            android:inputType="textPassword"
+            android:lineSpacingMultiplier="0.9"
+            android:paddingLeft="5dp"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -249,24 +274,26 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:text="确认密码:"
-            android:textColor="#000"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/register_et_05"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@+id/register_07"
-            android:background="@drawable/rectangle"
-            android:includeFontPadding="false"
-            android:lineSpacingMultiplier="0.9"
             android:gravity="center_vertical"
-            android:hint=" 请输入您的密码"
-            android:inputType="textPassword"/>
+            android:hint="请输入您的密码"
+            android:includeFontPadding="false"
+            android:inputType="textPassword"
+            android:lineSpacingMultiplier="0.9"
+            android:paddingLeft="5dp"
+            android:textColor="@color/project_main_tv"
+            android:textSize="18dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -288,10 +315,16 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/register_08_rb"
-            android:text="我同意环保小二APP用户使用协议"
-            android:textColor="#000"
+            android:text="我同意环保小二APP使用协议"
+            android:textColor="@color/project_main_tv"
             android:textSize="18sp"/>
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="#F1F1F1"/>
 
     <TextView
         android:id="@+id/register_ok_tv"

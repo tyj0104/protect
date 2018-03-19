@@ -19,12 +19,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bigkoo.pickerview.OptionsPickerView;
 import com.example.jay.myapplication.R;
 import com.example.jay.myapplication.base.activity.BaseActivity;
+import com.example.jay.myapplication.bean.AreaBean;
 import com.example.jay.myapplication.bean.RegisterModel;
 import com.example.jay.myapplication.net.ApiHelper;
 import com.example.jay.myapplication.ui.agreement.AgreementActivity;
+import com.example.jay.myapplication.utils.JsonFileReader;
 import com.example.jay.myapplication.utils.JsonUtil;
+
+import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -37,19 +42,24 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     //    private EditText phoneEt;
     private int xq = -1;
+    private View popupView;
     private EditText nameEt;
-    private EditText passWordEt;
-    private EditText passWordOkEt;
+    private String jsonData;
+    private TextView areaTv;
     private RadioButton rb_01;
     private RadioButton rb_02;
     private RadioButton rb_08;
+    private LinearLayout view;
     private TextView projectTv;
+    private EditText passWordEt;
+    private EditText passWordOkEt;
+    private PopupWindow popupWindow;
     private boolean isFirst = false;
     private RelativeLayout rl_project;
-    private String param_name = "A01_APP_Register";
-    private LinearLayout view;
-    private View popupView;
-    private PopupWindow popupWindow;
+    private OptionsPickerView pvOptions;
+    private ArrayList<AreaBean> options1Items = new ArrayList<>();
+    private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
+    private ArrayList<ArrayList<ArrayList<String>>> options3Items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +73,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         nameEt = (EditText) findViewById(R.id.register_et_01);
 //        EditText companyEt = (EditText) findViewById(R.id.register_et_02);
 //        EditText areaEt = (EditText) findViewById(R.id.register_et_03);
+        areaTv = (TextView) findViewById(R.id.register_et_03);
         passWordEt = (EditText) findViewById(R.id.register_et_04);
         passWordOkEt = (EditText) findViewById(R.id.register_et_05);
         projectTv = (TextView) findViewById(R.id.register_et_06);
@@ -82,6 +93,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         rb_01.setOnClickListener(this);
         rb_02.setOnClickListener(this);
         rb_08.setOnClickListener(this);
+        areaTv.setOnClickListener(this);
     }
 
     @Override
@@ -121,6 +133,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     popupWindow.dismiss();
                 }
                 break;
+            case R.id.register_et_03:
+                initJsonData();
+                showAreaPopupWindow();
+                break;
             case R.id.pop_02_tv:
                 setProjectName("许可证");
                 break;
@@ -154,7 +170,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     private void showPopWindow() {
         if (popupView == null) {
-            popupView = getLayoutInflater().inflate(R.layout.popwindow_register, null);
+            popupView = getLayoutInflater().inflate(R.layout.popwindow_register_project, null);
             TextView tv_ok = (TextView) popupView.findViewById(R.id.pop_ok_tv);
             TextView tv_02 = (TextView) popupView.findViewById(R.id.pop_02_tv);
             TextView tv_03 = (TextView) popupView.findViewById(R.id.pop_03_tv);
@@ -213,6 +229,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     private void register(String passWordOk, String name) {
 //        ApiHelper.getApi().regest(ApiHelper.sub_code, ApiHelper.sub_usercode, param_name, phone, passWordOk, name, xq == 1 ? "1" : "0", xq == 1 ? "0" : "1", "1")
+        String param_name = "A01_APP_Register";
         ApiHelper.getApi().regest(ApiHelper.sub_code, ApiHelper.sub_usercode, param_name, passWordOk, name, xq == 1 ? "1" : "0", xq == 1 ? "0" : "1", "1")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -249,5 +266,85 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onDismiss() {
         backgroundAlpha(RegisterActivity.this, 1f);
+    }
+
+    private void showAreaPopupWindow() {
+        //返回的分别是三个级别的选中位置
+        if (pvOptions == null) {
+            pvOptions = new OptionsPickerView.Builder(this, (options1, options2, options3, v) -> {
+                //返回的分别是三个级别的选中位置
+                String text = options1Items.get(options1).getPickerViewText() + " " +
+                        options2Items.get(options1).get(options2) + " " +
+                        options3Items.get(options1).get(options2).get(options3);
+                areaTv.setText(text);
+            }).setTitleText("")
+                    .setDividerColor(Color.GRAY)
+                    .setTextColorCenter(Color.GRAY)
+                    .setContentTextSize(15)
+                    .setOutSideCancelable(false)
+                    .build();
+          /*pvOptions.setPicker(options1Items);//一级选择器
+        pvOptions.setPicker(options1Items, options2Items);//二级选择器*/
+            pvOptions.setPicker(options1Items, options2Items, options3Items);//三级选择器
+        }
+        pvOptions.show();
+    }
+
+    private void initJsonData() {   //解析数据
+
+        /**
+         * 注意：assets 目录下的Json文件仅供参考，实际使用可自行替换文件
+         * 关键逻辑在于循环体
+         *
+         * */
+        //  获取json数据
+        if (!TextUtils.isEmpty(jsonData)) {
+            return;
+        }
+        jsonData = JsonFileReader.getJson(this, "province_data.json");
+        ArrayList<AreaBean> areaList = JsonUtil.jsonParseToList(jsonData, AreaBean.class);//用Gson 转成实体
+
+        /**
+         * 添加省份数据
+         *
+         * 注意：如果是添加的JavaBean实体，则实体类需要实现 IPickerViewData 接口，
+         * PickerView会通过getPickerViewText方法获取字符串显示出来。
+         */
+        options1Items = areaList;
+        for (int i = 0; i < areaList.size(); i++) {//遍历省份
+            ArrayList<String> CityList = new ArrayList<>();//该省的城市列表（第二级）
+            ArrayList<ArrayList<String>> Province_AreaList = new ArrayList<>();//该省的所有地区列表（第三极）
+
+            for (int c = 0; c < areaList.get(i).getCityList().size(); c++) {//遍历该省份的所有城市
+                String CityName = areaList.get(i).getCityList().get(c).getName();
+                CityList.add(CityName);//添加城市
+
+                ArrayList<String> City_AreaList = new ArrayList<>();//该城市的所有地区列表
+
+                //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
+                if (areaList.get(i).getCityList().get(c).getArea() == null
+                        || areaList.get(i).getCityList().get(c).getArea().size() == 0) {
+                    City_AreaList.add("");
+                } else {
+
+                    for (int d = 0; d < areaList.get(i).getCityList().get(c).getArea().size(); d++) {//该城市对应地区所有数据
+                        String AreaName = areaList.get(i).getCityList().get(c).getArea().get(d);
+
+                        City_AreaList.add(AreaName);//添加该城市所有地区数据
+                    }
+                }
+                Province_AreaList.add(City_AreaList);//添加该省所有地区数据
+            }
+
+            /**
+             * 添加城市数据
+             */
+            options2Items.add(CityList);
+
+            /**
+             * 添加地区数据
+             */
+            options3Items.add(Province_AreaList);
+        }
     }
 }
