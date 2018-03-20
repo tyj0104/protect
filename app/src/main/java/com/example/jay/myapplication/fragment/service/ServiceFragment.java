@@ -24,6 +24,7 @@ import com.example.jay.myapplication.fragment.service.vm.AdVM;
 import com.example.jay.myapplication.fragment.service.vm.RecommendVM;
 import com.example.jay.myapplication.fragment.service.vm.SuccessfulCaseVM;
 import com.example.jay.myapplication.ui.main.MainActivity;
+import com.example.jay.myapplication.ui.servicerecommenddetails.ServiceRecommendDetailActivity;
 import com.example.jay.myapplication.ui.successfulcasedetail.SuccessfulCaseDetailActivity;
 
 import java.util.ArrayList;
@@ -175,6 +176,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     public void onRecommendClick(int position) {
         if (activity != null) {
             activity.showToast(getContext(), "我点击了推荐" + position);
+            startActivity(new Intent(getContext(), ServiceRecommendDetailActivity.class));
         }
     }
 

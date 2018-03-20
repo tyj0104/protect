@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/activity_recommend_detail_send"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_register_ok"
+            android:gravity="center"
+            android:text="发送意向"
+            android:textColor="@color/white2"
+            android:textSize="18sp"/>
+
+        <com.example.jay.myapplication.widget.BackToolbar
+            android:id="@+id/activity_recommend_detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/activity_recommend_detail_rlv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/activity_recommend_detail_send"
+            android:layout_below="@+id/activity_recommend_detail_toolbar"/>
+    </RelativeLayout>
+</layout>
