@@ -1,5 +1,6 @@
 package com.example.jay.myapplication.fragment.service;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +24,7 @@ import com.example.jay.myapplication.fragment.service.vm.AdVM;
 import com.example.jay.myapplication.fragment.service.vm.RecommendVM;
 import com.example.jay.myapplication.fragment.service.vm.SuccessfulCaseVM;
 import com.example.jay.myapplication.ui.main.MainActivity;
+import com.example.jay.myapplication.ui.successfulcasedetail.SuccessfulCaseDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -180,6 +182,7 @@ public class ServiceFragment extends BaseFragment implements AdSeizeAdapter.OnAd
     public void onSuccessfulCaseClick(int position) {
         if (activity != null) {
             activity.showToast(getContext(), "我点击了成功安例" + position);
+            startActivity(new Intent(getContext(), SuccessfulCaseDetailActivity.class));
         }
     }
 }

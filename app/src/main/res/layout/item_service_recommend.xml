@@ -7,8 +7,9 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp"
-    android:orientation="vertical">
+    android:background="@drawable/selector_bg_common_default"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
 
     <ImageView
         android:id="@+id/item_service_recommend_iv"
@@ -79,10 +80,11 @@
         app:starSize="22dp"/>
 
     <View
+        android:id="@+id/item_service_recommend_line"
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_below="@+id/item_service_recommend_iv"
         android:layout_marginTop="10dp"
-        android:background="@color/black_thirty_percent"/>
+        android:background="@color/separation_line"/>
 
 </RelativeLayout>

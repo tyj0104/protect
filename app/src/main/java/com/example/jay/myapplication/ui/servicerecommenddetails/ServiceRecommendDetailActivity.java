@@ -9,7 +9,7 @@ import com.example.jay.myapplication.base.activity.BaseActivity;
  * Created by Administrator on 2017/10/26
  */
 
-public class ServiceRecommendDetails extends BaseActivity{
+public class ServiceRecommendDetailActivity extends BaseActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

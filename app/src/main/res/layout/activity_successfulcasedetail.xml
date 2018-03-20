@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white2"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="@color/blue_title"
+            app:popupTheme="@style/AppTheme">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="环保小二"
+                android:textColor="#FFF"
+                android:textSize="20sp"/>
+
+            <RelativeLayout
+                android:id="@+id/activity_successful_case_detail_back"
+                android:background="@drawable/selector_black"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize">
+
+                <ImageView
+                    android:id="@+id/activity_arrow"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:rotation="180"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_white_arrow"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/activity_arrow"
+                    android:text="返回"
+                    android:textColor="@color/white2"
+                    android:textSize="17sp"/>
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/activity_successful_case_detail_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="项目 老田项目许可证需求"
+                android:textColor="@color/project_main_tv"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="67dp"
+                android:layout_height="67dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shape_triangle"
+                android:rotation="90"
+                android:translationY="-18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:rotation="45"
+                android:text="完成"
+                android:textColor="#fff"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/activity_successful_case_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_successful_case_detail_project"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="悬赏钻石: 500"
+                android:textColor="@color/blue_default"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_successful_case_detail_price"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/activity_successful_case_detail_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发起时间: 2017-02-24 |"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/activity_successful_case_detail_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/activity_successful_case_detail_time"
+                    android:text="发起公司: 杭州污水处理厂"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="10dp"
+            android:background="@color/separation_line"/>
+
+        <TextView
+            android:id="@+id/activity_successful_case_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="内容:老田的需求完成了fdfdffffffffffffffff
+            ffffffffffffffff
+            fffffffffffffffffffffffffffff
+            fffffffffffffffffffffffffffffffffffffffffff"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="10dp"
+            android:background="@color/separation_line"/>
+
+        <RelativeLayout
+            android:id="@+id/activity_successful_case_detail_include"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_bg_common_default">
+
+            <LinearLayout
+                android:id="@+id/activity_successful_case_detail_include_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="35dp">
+
+                <TextView
+                    android:id="@+id/activity_successful_case_detail_server_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="服务商信息"
+                    android:textColor="@color/project_main_tv"
+                    android:textSize="14sp"/>
+
+                <include
+                    layout="@layout/item_service_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/activity_successful_case_detail_include_ll"
+                android:layout_marginTop="10dp"
+                android:background="@color/separation_line"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/icon_black_arrow"/>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

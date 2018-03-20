@@ -6,7 +6,8 @@
     android:layout_height="60dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="10dp"
+    android:background="@drawable/selector_bg_common_default">
 
     <ImageView
         android:id="@+id/item_mymsg_tab2_pic_iv"
@@ -81,5 +82,5 @@
         android:layout_height="1px"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
-        android:background="@color/black_thirty_percent"/>
+        android:background="@color/separation_line"/>
 </RelativeLayout>

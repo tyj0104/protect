@@ -127,7 +127,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:src="@mipmap/icon_login_arrow"/>
+            android:src="@mipmap/icon_black_arrow"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -224,7 +224,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:src="@mipmap/icon_login_arrow"/>
+            android:src="@mipmap/icon_black_arrow"/>
     </RelativeLayout>
 
     <RelativeLayout

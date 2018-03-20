@@ -6,7 +6,8 @@
     android:layout_height="60dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="10dp"
+    android:background="@drawable/selector_bg_common_default">
 
     <ImageView
         android:id="@+id/item_mymsg_tab1_pic_iv"
@@ -60,8 +61,8 @@
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="0.9"
         android:text="6分钟前"
-        android:textSize="13sp"
-        android:textColor="#999999"/>
+        android:textColor="#999999"
+        android:textSize="13sp"/>
 
     <TextView
         android:id="@+id/item_mymsg_tab1_ok_tv"
@@ -73,13 +74,13 @@
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="0.9"
         android:text="等待对方确认"
-        android:textSize="15sp"
-        android:textColor="#f39826"/>
+        android:textColor="#f39826"
+        android:textSize="15sp"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
-        android:background="@color/black_thirty_percent"/>
+        android:background="@color/separation_line"/>
 </RelativeLayout>

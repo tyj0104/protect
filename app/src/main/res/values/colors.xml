@@ -14,8 +14,13 @@
     <color name="blue_default">#299edd</color>
     <!--项目title-->
     <color name="blue_title">#0288d1</color>
+    <!--返回按钮选中时的颜色-->
+    <color name="blue_back_selector">#FF037BBC</color>
+    <color name="blue_back">#00ffffff</color>
     <!--项目字体主要颜色-->
     <color name="project_main_tv">#FF333333</color>
+    <!--分隔线-->
+    <color name="separation_line">#FFDDDDDD</color>
 
 
     <color name="white2">#FFFFFFFF</color>
