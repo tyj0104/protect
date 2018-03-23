@@ -3,6 +3,7 @@ package com.example.jay.myapplication.fragment.tuijian;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by jay on 2017/10/19.
  */
 
-public class TuijianFragment extends BaseFragment {
+public class TuijianFragment extends BaseFragment implements TuijianAdapter.TuiJianAdapterListener {
     private com.example.jay.myapplication.databinding.FrgmentTuijianBinding mBinding;
 
     private MainActivity activity;
@@ -60,19 +61,23 @@ public class TuijianFragment extends BaseFragment {
         mTuijianAdapter = new TuijianAdapter();
         prarentAdapter.setSeizeAdapters(mTuijianAdapter);
         recll.setAdapter(prarentAdapter);
+
+        mTuijianAdapter.TuiJianAdapterListener(this);
     }
 
     private void initDatas() {
         List<TuiJianBean> list;
         if (xuQiuFang) {
             list = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 30; i++) {
                 TuiJianBean ben = new TuiJianBean();
                 ben.setName("泰勒");
                 if (i < 5) {
                     ben.setStar(i + "");
+                    ben.setCodeNum(i + ".0");
                 } else {
                     ben.setStar("5");
+                    ben.setCodeNum(5 + ".0");
                 }
                 list.add(ben);
             }
@@ -91,4 +96,12 @@ public class TuijianFragment extends BaseFragment {
 
     }
 
+    @Override
+    public void onTuijianClick(int position) {
+        FragmentActivity activity = getActivity();
+        if (activity != null) {
+            ((MainActivity) activity).showToast(getContext(), "列表" + position);
+        }
+
+    }
 }

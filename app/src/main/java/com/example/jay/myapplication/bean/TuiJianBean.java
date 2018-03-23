@@ -10,7 +10,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class TuiJianBean  implements Serializable{
-    private  String  name;
-    private String  star;
+public class TuiJianBean implements Serializable {
+    private String name;
+    private String star;
+    private String codeNum;
 }
